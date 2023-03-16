@@ -1,7 +1,9 @@
-import Head from "next/head";
+import Footer from "./components/Footer"
+import Header from "./components/Header"
 export default function Home() {
   return (
     <div className="container m-auto text-center">
+      <Header/>
       <div className="p-2 font-extrabold text-transparent mt-52 text-9xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
         Making books come alive
       </div>
@@ -132,6 +134,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
