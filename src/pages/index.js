@@ -1,5 +1,10 @@
+import Head from "next/head"
+import Image from "next/image"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
+import landingPic1 from "../../public/landing-pic-1.jpeg"
+import landingPic2 from "../../public/landing-pic-2.jpeg"
+import landingPic3 from "../../public/landing-pic-3.jpeg"
 export default function Home() {
   return (
     <div className="container m-auto text-center">
@@ -48,10 +53,10 @@ export default function Home() {
           Instantly unlock book insights without reading.
         </div>
         <div className="flex gap-0">
-          <img
+          <Image
             className="flex-auto h-auto max-w-sm m-24 shadow-xl dark:shadow-gray-800"
-            src="https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U"
-          ></img>
+            src={landingPic1}
+          ></Image>
           <span
             className={
               "ml-48 @apply mx-0 w-[11px] h-[11px] shadow-[inset_0px_0px_0px_1.5px_#444444] rounded-[5.5px] background: rgba(255, 255, 255, 0.002);"
@@ -76,10 +81,10 @@ export default function Home() {
           </div>
         </div>
         <div className="flex">
-          <img
+        <Image
             className="flex-auto h-auto max-w-sm m-24 shadow-xl dark:shadow-gray-800"
-            src="https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U"
-          ></img>
+            src={landingPic2}
+          ></Image>
           <span
             className={
               "ml-48 @apply mx-0 w-[11px] h-[11px] shadow-[inset_0px_0px_0px_1.5px_#444444] rounded-[5.5px] background: rgba(255, 255, 255, 0.002);"
@@ -105,10 +110,10 @@ export default function Home() {
           </div>
         </div>
         <div className="flex">
-          <img
+        <Image
             className="flex-auto h-auto max-w-sm m-24 shadow-xl dark:shadow-gray-800"
-            src="https://fastly.picsum.photos/id/237/200/300.jpg?hmac=TmmQSbShHz9CdQm0NkEjx1Dyh_Y984R9LpNrpvH2D_U"
-          ></img>
+            src={landingPic3}
+          ></Image>
           <span
             className={
               "ml-48 @apply mx-0 w-[11px] h-[11px] shadow-[inset_0px_0px_0px_1.5px_#444444] rounded-[5.5px] background: rgba(255, 255, 255, 0.002);"
