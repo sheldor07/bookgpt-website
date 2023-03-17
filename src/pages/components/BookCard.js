@@ -1,3 +1,4 @@
+import Link from 'next/link'
 export default function BookCard(props){
     return(
         <div className="rounded shadow-lg">
@@ -11,9 +12,12 @@ export default function BookCard(props){
           </p>
         </div>
         <div className="px-6 pt-4 pb-2">
-          <a className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">
+          <Link href={{
+              pathname: '/books/[bookName]',
+              query: { bookName: props.name },
+            }} className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">
             Try Demo
-          </a>
+          </Link>
         </div>
       </div>
     )
