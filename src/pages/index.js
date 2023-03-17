@@ -1,4 +1,4 @@
-import Head from "next/head"
+import Link from "next/link"
 import Image from "next/image"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
@@ -21,7 +21,7 @@ export default function Home() {
         the time.
       </div>
       <div className="grid grid-cols-2 mt-32 mx-96 gap-x-8">
-        <button class="bg-neutral-50 text-black text-2xl font-bold py-4 px-4 rounded-lg">
+        <button className="px-4 py-4 text-2xl font-bold text-black rounded-lg bg-neutral-50">
           Get in touch
         </button>
         <button class="bg-gradient-to-r from-green-400 to-blue-500  text-white text-2xl font-bold py-4 px-4 rounded-lg">
