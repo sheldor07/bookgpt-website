@@ -37,6 +37,9 @@ export default function Carousels({para1,para2,para3}) {
     for(let i=0;i<list_of_paragraphs.length;i++){
 
       let paragraph = list_of_paragraphs[i]
+      if(!paragraph){
+        continue
+      } 
       let words = paragraph.split(" ")
 
       //check if the paragraph has at least 50 words
