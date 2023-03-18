@@ -3,7 +3,6 @@ import { supabase,supabaseUrl} from "../../utils/supabase";
 import { OpenAIStream } from "../../utils/getstream";
 
 const similarity = require( 'compute-cosine-similarity' );
-const {Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 });
