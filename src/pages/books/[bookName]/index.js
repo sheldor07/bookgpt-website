@@ -10,26 +10,36 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { supabase } from "../../../utils/supabase";
 export default function Home() {
   const router = useRouter();
-  const { bookName } = router.query;
-  // async function getColours(){
-  //   await  supabase.from('book-database')
-  //   .select(`${bookName}`)
-  //   .limit(1)
-  //   .single().then(({ data, error }) => {
-  //   if(error){
-  //     console.log("error", error)
-  //   }
-  //     console.log("colours got",data)
-  //   })
-  // }
-  // getColours()
+  console.log(router.query)
+  const bookName  = router.query.bookName;
+  const  bookId  = router.query.id;
+  async function getColours(){
+    await  supabase.from('book-database')
+    .select(`*`)
+    .then((result) => {
+      // Handle the result here
+      setColours([result.data[0].primaryCol,result.data[0].secondaryCol])
+
+    })
+    .catch((error) => {
+      // Handle the error here
+      console.error(error)
+    })
+  }
+
+  const [firstLoad, setFirstLoad] = useState(true);
   const [question, setQuestion] = useState("");
-  const [showResult, setShowResult] = useState(false);
+  const [showResult, setShowResult] = useState(true);
   const [gotResult, setGotResult] = useState(false);
   const [result, setResult] = useState("");
   const [passages, setPassages] = useState(["", "", ""]);
   const [gotEmbeddings, setGotEmbeddings] = useState(true);
   const answerRef = useRef(null);
+  const [colours, setColours] = useState(["", ""]);
+  if(firstLoad){
+    getColours()
+    setFirstLoad(false)
+  }
   function handleChange(event) {
     setQuestion(event.target.value);
   }
@@ -237,8 +247,8 @@ const handleKeyDown = (e) => {
               font-family: 'Roboto', sans-serif;
               max-width: 100vw;
               overflow:visible;
-                --bg-color: #e3e7e6;
-                --dot-color: rgb(129,162,138);
+                --bg-color: ${colours[0]};
+                --dot-color: #fec702;
                 
                 /* Dimensions */
                 --dot-size: 3px;
@@ -249,9 +259,23 @@ const handleKeyDown = (e) => {
                   linear-gradient(var(--bg-color) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center,
                   var(--dot-color);
                 background-size: var(--dot-space) var(--dot-space);
-          }`}
+          }
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
+          a:active{
+            color: inherit;
+            text-decoration: none;
+          }
+          a:hover{
+            color:white;
+            text-decoration: none;
+          }
+          `}
           
         </style>
+        
       </main>
 
     </>

@@ -2,14 +2,16 @@ import React from "react";
 import Image from "next/image";
 import Carousels from "./Carousels";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import homeStyles from "../styles/Answer.module.css";
+import landingStyles from "../styles/Home.module.css"
 export default function Answer({bookName,answer, para1, para2, para3, gotResult }) {
 
     
-     
+  console.log('got result',gotResult)
   return (
     <div className={`container`}>
-      <div className={`${homeStyles['landing-container']}`}>
+      <div className={`${landingStyles['landing-container']}`}>
         <div className={`row ${homeStyles.row} ${homeStyles['answer-container']} ${homeStyles['answer-card']}`}>
           <div className={`col ${homeStyles.col}`}>
             <div className={`${homeStyles['answer-header']}`}>{bookName} says...</div>

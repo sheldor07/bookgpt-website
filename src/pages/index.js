@@ -140,6 +140,16 @@ export default function Home() {
         </div>
       </div>
       <Footer/>
+      {
+        <style global jsx>{
+          `
+          body{
+            background-color: black;
+          }
+          `
+        }</style>
+      }
     </div>
+    
   );
 }

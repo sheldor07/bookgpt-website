@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+
 export default function BookCard(props) {
   return (
     <div className="rounded shadow-lg">
@@ -23,7 +23,7 @@ export default function BookCard(props) {
         <Link
           href={{
             pathname: "/books/[bookName]",
-            query: { bookName: props.name },
+            query: { bookName: props.name,},
           }}
           className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
         >

@@ -94,12 +94,13 @@
   position: relative !important;
   object-fit: cover; 
 }
-.template-mockup-text{
+
+.cta-link{
+  display: inline-block;
   text-align: center;
   background-color:black;
   height:50px;
   width:70%;
-  margin-left:15%;
   border-radius:10px;
   font-family: 'Roboto';
   font-style: normal;
@@ -164,7 +165,7 @@
   .templace-mockup-image{
     width:100%;
   }
-  .template-mockup-text{
+  .cta-link{
     padding:8.5px;
     font-size:20px;
   }
