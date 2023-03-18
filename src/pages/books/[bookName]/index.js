@@ -1,35 +1,34 @@
 import Head from "next/head";
-import Image from "next/image";
 import Answer from "../components/Answer";
+import Footer from "../components/Footer";
 import { useState, useRef } from "react";
-import Carousel from "react-bootstrap/Carousel";
-import * as homeStyles from "../styles/Home.module.css";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useRouter } from "next/router";
+import * as indexStyles from "../styles/Index.module.css"
+import * as homeStyles from "../styles/Home.module.css";
+import Image from "next/image";
+import Carousel from "react-bootstrap/Carousel";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import 'bootstrap/dist/css/bootstrap.css'
+
 export default function Home() {
   const router = useRouter();
   const { bookName } = router.query;
+  const [question, setQuestion] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [gotResult, setGotResult] = useState(false);
   const [result, setResult] = useState("");
   const [passages, setPassages] = useState(["", "", ""]);
-  const [question, setQuestion] = useState("");
+  
   const [gotEmbeddings, setGotEmbeddings] = useState(true);
   const answerRef = useRef(null);
   function handleChange(event) {
     setQuestion(event.target.value);
   }
-
-  const handleScroll = (ref) => {
-    setTimeout(() => {
-      window.scrollTo({
-        top: ref.offsetTop,
-        left: 100,
-        behavior: "smooth",
-      });
-    }, 50);
+const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      generateAnswer();
+    }
   };
-
   async function generateAnswer() {
     let btnSubmit = document.getElementById("btnSubmit");
     if (question === "") {
@@ -88,11 +87,18 @@ export default function Home() {
 
     btnSubmit.disabled = false;
   }
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      generateAnswer();
-    }
+
+  const handleScroll = (ref) => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: ref.offsetTop,
+        left: 100,
+        behavior: "smooth",
+      });
+    }, 50);
   };
+
+  
 
   return (
     <>
@@ -102,14 +108,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main id="main">
-        <div
+      <main className={`${indexStyles.main}`}>
+      <div
           className={`container ${homeStyles.container} ${homeStyles["landing-container"]}`}
         >
           <div
-            className={`row ${homeStyles.row} ${homeStyles["landing-card"]} ${homeStyles["landing-bg"]}`}
+            className={`row ml-0 ${homeStyles.row} ${homeStyles["landing-card"]} ${homeStyles["landing-bg"]}`}
           >
-            {gotEmbeddings ? (
+             
               <div className={`col-sm ${homeStyles["col-sm"]}`}>
                 <div className={homeStyles["landing-header"]}>
                   I&apos;m {bookName}
@@ -130,19 +136,8 @@ export default function Home() {
                   ></button>
                 </div>
               </div>
-            ) : (
-              <div className={`col-sm ${homeStyles["col-sm"]}`}>
-                <div className={homeStyles["landing-header"]}>
-                  <Skeleton />
-                </div>
-                <div className={homeStyles["form-container"]}>
-                  <Skeleton width={600} height={100} />
-                </div>
-              </div>
-            )}
 
             <div className={`col homeStyles.col`}>
-              {gotEmbeddings ? (
                 <div
                   className={`row ${homeStyles.row} ${homeStyles["template-mockup"]}`}
                 >
@@ -159,8 +154,9 @@ export default function Home() {
                       >
                         <Image
                           className={homeStyles["template-mockup-image"]}
-                          layout="fill"
-                          src="/notion-mockup-1.png"
+                          width="100"
+                          height={100}
+                          src={`https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-1.png`}
                           alt="Notion Mockup"
                           priority
                         />
@@ -174,7 +170,7 @@ export default function Home() {
                         <Image
                           className={homeStyles["template-mockup-image"]}
                           layout="fill"
-                          src="/notion-mockup-2.png"
+                          src={`https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-2.png`}
                           alt="Notion Mockup"
                           priority
                         />
@@ -188,7 +184,7 @@ export default function Home() {
                         <Image
                           className={homeStyles["template-mockup-image"]}
                           layout="fill"
-                          src="/notion-mockup-3.png"
+                          src={`https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-3.png`}
                           alt="Notion Mockup"
                           priority
                         />
@@ -205,25 +201,10 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-              ) : (
-                <div
-                  className={`row ${homeStyles.row} ${homeStyles["template-mockup"]}`}
-                >
-                  <Carousel
-                    controls={false}
-                    interval="3000"
-                    fade
-                    variant="dark"
-                  >
-                    <Carousel.Item>
-                      <Skeleton width={600} height={400} />
-                    </Carousel.Item>
-                  </Carousel>
-                </div>
-              )}
             </div>
           </div>
         </div>
+        
         <div ref={answerRef}>
           {showResult ? (
             <Answer
@@ -238,28 +219,7 @@ export default function Home() {
             <div></div>
           )}
         </div>
-        <footer
-          id="footer"
-          className={homeStyles.footer}
-          style={{ textAlign: "center" }}
-        >
-          Created with 💙 by{" "}
-          <a
-            style={{ textDecoration: "underline" }}
-            target="__blank"
-            href="https://manasbam.com"
-          >
-            Manas
-          </a>{" "}
-          and{" "}
-          <a
-            target="__blank"
-            style={{ textDecoration: "underline" }}
-            href="https://github.com/sheldor07"
-          >
-            Yajat
-          </a>
-        </footer>
+        <Footer/>
       </main>
     </>
   );
