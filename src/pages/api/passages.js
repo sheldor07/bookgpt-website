@@ -1,5 +1,5 @@
 
-import { supabase,supabaseUrl} from "../../utils/supabase";
+import { supabase} from "../../utils/supabase";
 
 const similarity = require( 'compute-cosine-similarity' );
 
@@ -15,7 +15,8 @@ const handler = async (req, res) => {
             let body = await req.json();
 
             let query = body.question;
-            const result = await supabase.from('psychology-of-money-embeddings').select("*")
+            let bookName=body.bookName;
+            const result = await supabase.from(`${bookName}-embeddings`).select("*")
             const data = result.data;
         
             const embed = await fetch("https://api.openai.com/v1/embeddings", {
