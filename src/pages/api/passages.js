@@ -2,11 +2,7 @@
 import { supabase,supabaseUrl} from "../../utils/supabase";
 
 const similarity = require( 'compute-cosine-similarity' );
-const {Configuration, OpenAIApi } = require("openai");
-const configuration = new Configuration({
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+
 const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
 export const config = {
   runtime: "edge",
