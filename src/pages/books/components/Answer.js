@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Carousels from "./Carousels";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import homeStyles from "../styles/Answer.module.css";
 export default function Answer({bookName,answer, para1, para2, para3, gotResult }) {
 
