@@ -3,8 +3,10 @@ import { Html, Head, Main, NextScript } from 'next/document'
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
-      <body id="body">
+      <Head>
+        
+      </Head>
+      <body class="dark"id="body">
         <Main />
         <NextScript />
       </body>

@@ -7,7 +7,7 @@ import landingPic2 from "../../public/landing-pic-2.jpeg"
 import landingPic3 from "../../public/landing-pic-3.jpeg"
 export default function Home() {
   return (
-    <div className="container m-auto text-center">
+    <div className="container w-screen h-screen m-auto text-center">
       <Header/>
       <div className="p-2 font-extrabold text-transparent mt-52 text-9xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
         Making books come alive
@@ -24,7 +24,7 @@ export default function Home() {
         <button className="px-4 py-4 text-2xl font-bold text-black rounded-lg bg-neutral-50">
           Get in touch
         </button>
-        <button class="bg-gradient-to-r from-green-400 to-blue-500  text-white text-2xl font-bold py-4 px-4 rounded-lg">
+        <button className="px-4 py-4 text-2xl font-bold text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500">
           Explore our Catalog
         </button>
       </div>
