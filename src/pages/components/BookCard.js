@@ -12,7 +12,7 @@ export default function BookCard(props) {
       />
 
       <div className="px-6 py-4">
-        <div className="mb-2 text-xl font-bold text-white">{props.name}</div>
+        <div className="mb-2 text-xl font-bold text-white">{props.showName}</div>
         <p className="text-base text-gray-700">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
           quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium
@@ -23,7 +23,7 @@ export default function BookCard(props) {
         <Link
           href={{
             pathname: "/books/[bookName]",
-            query: { bookName: props.name,},
+            query: { bookName: props.name},
           }}
           className="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
         >

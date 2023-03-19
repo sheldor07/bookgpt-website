@@ -1,6 +1,6 @@
 import { createParser, ParsedEvent, ReconnectInterval } from "eventsource-parser";
 
-export const OpenAIStream = async (passages, prompt, apiKey) => {
+export const OpenAIStream = async (bookName,passages, prompt, apiKey) => {
     const encoder = new TextEncoder();
     const decoder = new TextDecoder();
   
@@ -15,7 +15,7 @@ export const OpenAIStream = async (passages, prompt, apiKey) => {
         messages: [
             {
                 role: "system",
-                content: `You are the most well read assistant on the book Psychology of Money. You will answer my question relating very closely to the book. You have the following information from the book to supplement your answer and you must synthesise this information in about 150 words in your answer. The information is ` + passages
+                content: `You are the most well read assistant on the book ${bookName}. You will answer my question relating very closely to the book. You have the following information from the book to supplement your answer and you must synthesise this information in about 150 words in your answer. The information is ` + passages
             },
             {
                 role: "user",

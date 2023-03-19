@@ -5,7 +5,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import homeStyles from "../styles/Answer.module.css";
 import landingStyles from "../styles/Home.module.css"
-export default function Answer({bookName,answer, para1, para2, para3, gotResult }) {
+export default function Answer({showName, bookName,answer, para1, para2, para3, gotResult }) {
 
     
   console.log('got result',gotResult)
@@ -14,7 +14,7 @@ export default function Answer({bookName,answer, para1, para2, para3, gotResult 
       <div className={`${landingStyles['landing-container']}`}>
         <div className={`row ${homeStyles.row} ${homeStyles['answer-container']} ${homeStyles['answer-card']}`}>
           <div className={`col ${homeStyles.col}`}>
-            <div className={`${homeStyles['answer-header']}`}>{bookName} says...</div>
+            <div className={`${homeStyles['answer-header']}`}>{showName} says...</div>
             {gotResult ? (
               <div className={`${homeStyles['answer-text']}`}>{answer}</div>
             ) : (
@@ -25,7 +25,7 @@ export default function Answer({bookName,answer, para1, para2, para3, gotResult 
           </div>
           <div className={`col ${homeStyles.col}`}>
             <div className={`${homeStyles['answer-passages']}`}>
-              <div className={`${homeStyles['answer-passages-header']}`}>From {bookName}:</div>
+              <div className={`${homeStyles['answer-passages-header']}`}>From {showName}:</div>
               {gotResult ? (
                 <Carousels para1={para1} para2={para2} para3={para3} />
               ) : (

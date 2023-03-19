@@ -16,8 +16,9 @@ const handler = async (req, res) => {
   try {
     let query = await req.json();
     let rel_passages= query.passages;
+    let bookName = query.bookName;
     query = query.question;
-    const stream = await OpenAIStream(rel_passages, query, apiKey);
+    const stream = await OpenAIStream(bookName,rel_passages, query, apiKey);
     return new Response(stream, { status: 200 });
   } catch (error) {
     return new Response("Error", { status: 500 });
