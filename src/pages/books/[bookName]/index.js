@@ -60,7 +60,7 @@ const handleKeyDown = (e) => {
     if (question === "") {
       return;
     }
-
+    //deploy w vercel
     btnSubmit.disabled = true;
     setGotResult(false);
     setShowResult(true);
