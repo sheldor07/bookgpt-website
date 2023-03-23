@@ -7,12 +7,14 @@ import landingPic2 from "../../public/landing-pic-2.jpeg"
 import landingPic3 from "../../public/landing-pic-3.jpeg"
 export default function Home() {
   return (
-    <div className="container w-screen h-screen m-auto text-center">
+    <div className="overflow-auto" >
       <Header/>
-      <div className="p-2 font-extrabold text-transparent mt-52 text-9xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
-        Making books come alive
+      <div className="xl:mx-56">
+      <div className="flex flex-col items-center m-10">
+      <div className="mt-16 font-extrabold text-center text-transparent lg:text-9xl text-8xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
+        Making Books Come Alive
       </div>
-      <div className="flex items-center mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 px-52">
+      <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600">
         BookGPT is the ultimate solution for book lovers who want to keep up
         with the latest literary trends but don't have the time to read every
         book. Our AI-powered search reads the book for you, so you can get the
@@ -20,22 +22,23 @@ export default function Home() {
         the book makes it easy to read the most important parts in a fraction of
         the time.
       </div>
-      <div className="grid grid-cols-2 mt-32 mx-96 gap-x-8">
-        <button className="px-4 py-4 text-2xl font-bold text-black rounded-lg bg-neutral-50">
+      <div className="grid grid-cols-1 gap-3 mt-10 lg:gap-6 sm:grid-cols-2 lg:mt-24">
+        <button className="w-64 p-2 text-xl text-black rounded-lg font-base bg-neutral-50">
           Get in touch
         </button>
-        <button className="px-4 py-4 text-2xl font-bold text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500">
-          Explore our Catalog
+        <button className="w-64 p-2 text-xl text-white rounded-lg font-base bg-gradient-to-r from-green-400 to-blue-500">
+          <Link href="/catalog">Explore our Catalog</Link>
+          
         </button>
       </div>
-      <div className="container">
-        <div className="p-2 mt-56 font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
+      <div className="flex flex-col items-center text-center ">
+        <div className="p-2 mt-24 text-5xl font-extrabold text-transparent lg:text-7xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
           Why BookGPT?
         </div>
-        <div className="mt-10 text-4xl font-bold text-white">
-          Stay Ahead of the Game with BookGPT
+        <div className="mt-10 text-2xl font-bold text-white lg:text-4xl">
+          Stay Ahead of the Game<br></br>with BookGPT
         </div>
-        <div className="flex mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 mx-36 px-52">
+        <div className="flex mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 lg:mt-16 ">
           Ever felt like you're missing out on the latest bestsellers or classic
           books? Life can get busy, and it's not always easy to find the time to
           sit down and read. That's where BookGPT comes in - we offer an
@@ -44,102 +47,73 @@ export default function Home() {
           having to read them. No more FOMO, just the knowledge you need. Try
           BookGPT today and see for yourself!
         </div>
-      </div>
-      <div className="container">
-        <div className="p-2 mt-56 font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#FF0080] to-[#7928CA] ">
+      </div> 
+      <div className="flex flex-col items-center text-center ">
+        <div className="p-2  mt-56 font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#FF0080] to-[#7928CA] ">
           Our Solution
         </div>
-        <div className="mt-10 text-4xl font-bold text-white">
+        <div className="mt-10 text-2xl font-bold text-white lg:text-4xl">
           Instantly unlock book insights without reading.
         </div>
-        <div className="flex gap-0">
+      </div>
+        <div className="grid grid-cols-1 sm:gap-10 sm:grid-cols-2">
+          <div className="mt-10 lg:mt-16">
           <Image
-            className="flex-auto h-auto max-w-sm m-24 shadow-xl dark:shadow-gray-800"
+            className="rounded-sm shadow-6xl shadow-grey-800"
             src={landingPic1}
           ></Image>
-          <span
-            className={
-              "ml-48 @apply mx-0 w-[11px] h-[11px] shadow-[inset_0px_0px_0px_1.5px_#444444] rounded-[5.5px] background: rgba(255, 255, 255, 0.002);"
-            }
-          ></span>
-          <span
-            className={"-ml-1.5 mt-2 border-r-[#444444] border-r border-dashed"}
-          ></span>
-          <div className="flex-1 ml-10">
-            <div className="mt-24 text-3xl font-bold text-left text-white">
+           
+        </div>
+        <div>
+        <div className="mt-24 text-3xl font-bold text-center text-white">
               Cutting Edge Search
             </div>
-            <div className="mt-10 text-2xl not-italic font-normal leading-9 text-left text-gray-600 ">
-              <ul className="list-disc">
-                <li>
-                  With BookGPT's AI-powered search tool, you'll get instant
+            <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 ">
+            With BookGPT's AI-powered search tool, you'll get instant
                   answers from bestsellers with just a few clicks. It's like
                   having a personal researcher at your fingertips!
-                </li>
-              </ul>
             </div>
-          </div>
-        </div>
-        <div className="flex">
-        <Image
-            className="flex-auto h-auto max-w-sm m-24 shadow-xl dark:shadow-gray-800"
+        </div>  
+        <div className="flex mt-10">
+          <Image
+            className="flex-shrink-0 rounded-sm shadow-6xl shadow-grey-800"
             src={landingPic2}
           ></Image>
-          <span
-            className={
-              "ml-48 @apply mx-0 w-[11px] h-[11px] shadow-[inset_0px_0px_0px_1.5px_#444444] rounded-[5.5px] background: rgba(255, 255, 255, 0.002);"
-            }
-          ></span>
-          <span
-            className={"-ml-1.5 mt-2 border-r-[#444444] border-r border-dashed"}
-          ></span>
-          <div className="flex-1 ml-10">
-            <div className="mt-24 text-3xl font-bold text-left text-white">
-              Engaging reading experience
+           
+        </div>
+        <div>
+        <div className="mt-24 text-3xl font-bold text-center text-white">
+        Engaging reading experience
             </div>
-            <div className="mt-10 text-2xl not-italic font-normal leading-9 text-left text-gray-600 ">
-              <ul className="list-disc">
-                <li>
-                  BookGPT offers an interactive reading experience that's
+            <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 ">
+            BookGPT offers an interactive reading experience that's
                   optimized for modern, fast-paced lifestyles. Our minified,
                   easy-to-read version of the book with relevant passages is
                   perfect for people who want to learn on the go.
-                </li>
-              </ul>
             </div>
-          </div>
         </div>
-        <div className="flex">
-        <Image
-            className="flex-auto h-auto max-w-sm m-24 shadow-xl dark:shadow-gray-800"
+        <div className="mt-10">
+          <Image
+            className="rounded-sm shadow-6xl shadow-grey-800"
             src={landingPic3}
           ></Image>
-          <span
-            className={
-              "ml-48 @apply mx-0 w-[11px] h-[11px] shadow-[inset_0px_0px_0px_1.5px_#444444] rounded-[5.5px] background: rgba(255, 255, 255, 0.002);"
-            }
-          ></span>
-          <span
-            className={"-ml-1.5 mt-2 border-r-[#444444] border-r border-dashed"}
-          ></span>
-          <div className="flex-1 ml-10">
-            <div className="mt-24 text-3xl font-bold text-left text-white">
-              Effortless learning{" "}
+           
+        </div>
+        <div>
+        <div className="mt-24 text-3xl font-bold text-center text-white">
+        Effortless learning{" "}
             </div>
-            <div className="mt-10 text-2xl not-italic font-normal leading-9 text-left text-gray-600 ">
-              <ul className="list-disc">
-                <li>
-                  BookGPT's time-saving solution lets you stay in the know and
+            <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 ">
+            BookGPT's time-saving solution lets you stay in the know and
                   up-to-date without sacrificing hours of your precious time.
                   Impress your friends and colleagues with your newfound
                   knowledge, all while keeping up with your busy schedule.
-                </li>
-              </ul>
             </div>
-          </div>
         </div>
+       </div>
       </div>
-      <Footer/>
+      </div>
+      <Footer className="dark"/>
       {
         <style global jsx>{
           `

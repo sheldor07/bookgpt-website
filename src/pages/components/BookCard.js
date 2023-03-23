@@ -1,15 +1,16 @@
 import Link from "next/link";
-
+import Image from "next/image";
 export default function BookCard(props) {
   return (
     <div className="rounded shadow-lg">
-      <img
+    <div>
+      <Image
         className="object-center"
         src={`https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${props.name}/preview.png`}
-        alt="Mountain"
         width={500}
         height={500}
       />
+      </div>
 
       <div className="px-6 py-4">
         <div className="mb-2 text-xl font-bold text-white">{props.showName}</div>
