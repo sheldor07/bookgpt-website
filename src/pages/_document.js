@@ -9,6 +9,7 @@ export default function Document() {
       <body class="dark"id="body">
         <Main />
         <NextScript />
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
       </body>
     </Html>
   )

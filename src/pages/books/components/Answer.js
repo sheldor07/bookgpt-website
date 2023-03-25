@@ -4,41 +4,74 @@ import Carousels from "./Carousels";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import homeStyles from "../styles/Answer.module.css";
-import landingStyles from "../styles/Home.module.css"
-export default function Answer({showName, bookName,answer, para1, para2, para3, gotResult }) {
+import landingStyles from "../styles/Home.module.css";
+export default function Answer({
+  showName,
+  bookData,
+  answer,
+  para1,
+  para2,
+  para3,
+  gotResult,
+}) {
+  console.log("got result", gotResult);
 
-    
-  console.log('got result',gotResult)
+  const primary_col = bookData.primary;
+  const secondary_col = bookData.secondary;
   return (
-    <div className={`container`}>
-      <div className={`${landingStyles['landing-container']}`}>
-        <div className={`row ${homeStyles.row} ${homeStyles['answer-container']} ${homeStyles['answer-card']}`}>
-          <div className={`col ${homeStyles.col}`}>
-            <div className={`${homeStyles['answer-header']}`}>{showName} says...</div>
-            {gotResult ? (
-              <div className={`${homeStyles['answer-text']}`}>{answer}</div>
-            ) : (
-              <SkeletonTheme color="#eae9e3" highlightColor="#8a929b">
-                <Skeleton className={`${homeStyles['answer-skeleton']} ${homeStyles['passage-skeleton']}`} count={10} />
-              </SkeletonTheme>
-            )}
+    <div className={`px-52 mt-20`}>
+      <div
+        className={`grid grid-cols-1 rounded-2xl lg:grid-cols-2 bg-gradient-to-r from-[#d5d3d1]/70 to-white-500 `}
+      >
+        <div className={``}>
+          <div className={`mx-5 mt-10 text-center font-bold lg:text-6xl`}>
+            {showName} says...
           </div>
-          <div className={`col ${homeStyles.col}`}>
-            <div className={`${homeStyles['answer-passages']}`}>
-              <div className={`${homeStyles['answer-passages-header']}`}>From {showName}:</div>
-              {gotResult ? (
-                <Carousels para1={para1} para2={para2} para3={para3} />
-              ) : (
-                <SkeletonTheme color="#eae9e3" highlightColor="#8a929b">
-                  <Skeleton className={`${homeStyles['passage-skeleton']}`} count={7} />
-                </SkeletonTheme>
-              )}
+          {gotResult ? (
+            <div
+              className={`m-10 p-5 rounded-xl bg-[white] border-2 border-black border-solid`}
+            >
+              {answer}
             </div>
-          </div>
+          ) : (
+            <div className={`m-10 ml-20 p-5 `}>
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-4"></div>
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+          )}
+        </div>
+          <div className={`bg-white border-black border-8 rounded-xl m-10 w-3/4 border-solid`}>
+            <div className={`text-3xl font-semibold p-10 pl-5`}>
+              From {showName}:
+            </div>
+            {gotResult ? (
+              <Carousels para1={para1} para2={para2} para3={para3} />
+            ) : (
+              <div className={`ml-7`}>
+              <div role="status" class="max-w-sm animate-pulse">
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-1"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-1"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-1"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-1"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-1"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-1"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-1"></div>
+                <div class="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-1"></div>
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            )}
         </div>
       </div>
     </div>
   );
-  
-
 }
