@@ -54,17 +54,17 @@ export default function Navbar() {
               </div>
 
               <div className="hidden md:flex">
-                  <Link className="p-4 text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/">
+                  <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/">
                     home
                   </Link>
-                  <Link className="p-4 text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/about">
+                  <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/about">
                       about
                   </Link>
-                  <Link className="p-4 text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/contact">
+                  <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/contact">
                       meet the team
                   </Link>
                   <Link className="p-2"href="/templates">
-                    <button className='p-2 font-bold text-black bg-white rounded-full'>templates</button>
+                    <button className='p-2 text-lg font-bold text-black bg-white rounded-full'>get your 📚 now</button>
                      
                   </Link>
               </div>
