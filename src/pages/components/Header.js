@@ -14,11 +14,18 @@ function MobileNav({open, setOpen}) {
           </div>
           <div className="flex flex-col ml-4">
               <a className="my-4 text-xl font-medium text-white" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-                  About
+                  home
               </a>
               <a className="my-4 text-xl font-normal text-white" href="/contact" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-                  Contact
+                  about
               </a>
+              <a className="my-4 text-xl font-normal text-white" href="/contact" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
+                  meet the team
+              </a>
+              <a className="my-4 text-xl font-normal text-white" href="/contact" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
+              <button className='p-2 font-bold text-black bg-white rounded-full'>templates</button>
+              </a>
+              
           </div>  
       </div>
   )
@@ -47,13 +54,13 @@ export default function Navbar() {
               </div>
 
               <div className="hidden md:flex">
-                  <Link className="p-4 text-white focus:colou"href="/">
+                  <Link className="p-4 text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/">
                     home
                   </Link>
-                  <Link className="p-4 text-white"href="/about">
+                  <Link className="p-4 text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/about">
                       about
                   </Link>
-                  <Link className="p-4 text-white"href="/contact">
+                  <Link className="p-4 text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/contact">
                       meet the team
                   </Link>
                   <Link className="p-2"href="/templates">
