@@ -194,7 +194,7 @@ export default function Home({ bookData }) {
         {`
           body {
             --bg-color: ${bookData.primary};
-            --dot-color: ${bookData.secondary};
+            --dot-color: #ffff};
 
             /* Dimensions */
             --dot-size: 3px;
@@ -237,7 +237,7 @@ export async function getServerSideProps(context) {
 
   const { data: books, error } = await supabase
     .from("book-database")
-    .select("primary_col, secondary_col")
+    .select("primary_col")
     .eq("book_name", bookName)
     .single();
 
@@ -251,7 +251,6 @@ export async function getServerSideProps(context) {
     props: {
       bookData: {
         primary: books.primary_col,
-        secondary: books.secondary_col,
       },
     },
   };

@@ -12,11 +12,11 @@ export default function Home({books}) {
       <Header/>
       <div className="xl:mx-24">
      <HeroText/>
-     <div>
-      <div className="text-5xl text-white text-bolder">explore our book catalog</div>
+     <div className="mt-24">
+      <div className="p-1 text-6xl font-bold bg-gradient-to-r text-transparent bg-clip-text from-[#7928CA] to-[#FF0080]">explore our book catalog</div>
       <div className="grid grid-cols-1 gap-5 p-10 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
         {books.map((book) => (
-          <BookCard key={book.id}showName={properCase(book.book_name)} name={book.book_name} />
+          <BookCard key={book.id} book_description = {book.catalog_description}showName={properCase(book.book_name)} name={book.book_name} />
         ))}
         
       </div>
