@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Answer from "../components/Answer";
 import Footer from "../components/Footer";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import * as homeStyles from "../styles/Home.module.css";
 import Image from "next/image";
@@ -29,22 +29,69 @@ export default function Home({ bookData }) {
   function handleChange(event) {
     setQuestion(event.target.value);
   }
+
+  function RightColumn() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [slides, setSlides] = useState([
+      "https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/notion-mockup-1.png",
+      "https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/notion-mockup-2.png",
+      "https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/notion-mockup-3.png",
+    ]);
+
+    // Set the current slide
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentSlide(
+          currentSlide === slides.length - 1 ? 0 : currentSlide + 1
+        );
+      }, 5000);
+      return () => clearInterval(interval);
+    }, [currentSlide, slides]);
+
+    return (
+      <div className="flex flex-col w-1/2">
+        {/* 1 */}
+        <div className="flex justify-center items-center mt-8 flex-grow">
+          <img
+            src={slides[currentSlide]}
+            alt={`Image ${currentSlide + 1}`}
+            className="w-10/12 lg:w-11/12 object-cover rounded-lg"
+          />
+        </div>
+        {/* 1 */}
+        <div className="ml-8 mr-8">
+          <button className="bg-[#000000] text-white py-2 px-4 rounded-lg mt-4">
+            Get the Ultimate Notion Template
+          </button>
+          {/* 2 */}
+          <p className="text-[18px] mt-4">
+            Experience Chapter Summaries, Stellar Quotes, Real-Life Scenarios &
+            More.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       generateAnswer();
     }
   };
-  async function generateAnswer() {
+  async function generateAnswer(searchQuery = "none") {
     let btnSubmit = document.getElementById("btnSubmit");
+    if (searchQuery != "none") {
+      setQuestion(searchQuery);
+    }
     if (question === "") {
       return;
     }
-    //comment
     btnSubmit.disabled = true;
     setGotResult(false);
     setShowResult(true);
     handleScroll(answerRef.current);
     let check = "false";
+    console.log("query", question);
     const passageResponse = await fetch("/api/passages", {
       method: "POST",
       headers: {
@@ -104,10 +151,6 @@ export default function Home({ bookData }) {
       });
     }, 50);
   };
-  // if(firstLoad){
-  //   getColours()
-  //   setFirstLoad(false)
-  // }
 
   return (
     <>
@@ -119,59 +162,110 @@ export default function Home({ bookData }) {
       </Head>
       <main id="main">
         <div className={`px-52`}>
-          <div
-            className={`mt-20 grid grid-cols-1 rounded-2xl min-h-[600px] lg:grid-cols-2 bg-gradient-to-r from-[#d5d3d1]/50 to-white-500 `}
-          >
-            <div className="flex flex-col ml-auto mr-auto mt-52">
-              <div className="font-bold lg:text-7xl">I&apos;m {showName}</div>
-              <div className={"relative mt-20"}>
-                <div>
-                <input
-                  className={`text-xl bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-xl py-4 px-4 block w-full appearance-none leading-normal`}
-                  type="input"
-                  placeholder=" Ask Me Anything"
-                  onChange={handleChange}
-                  onKeyDown={handleKeyDown}
-                ></input>
-                </div>
-            
-                <div className="absolute inset-y-0 right-5 top-2">
-                <button id="btnSubmit" onClick={generateAnswer} type="submit">
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    className="w-10"
+          <header class="flex justify-between items-center py-4">
+            <div class="ml-6 flex items-center">
+              <img
+                src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.jpeg"
+                alt="Logo"
+                class="h-8 mr-4 rounded"
+              />
+              <a href="#" class="text-gray-600 hover:text-gray-900">
+                Join GPT Book Club
+              </a>
+            </div>
+            <div class="hidden md:block">
+              <a href="#" class="text-gray-600 hover:text-gray-900 mr-4">
+                Notion Template
+              </a>
+              <a href="#" class="text-gray-600 hover:text-gray-900">
+                Contact
+              </a>
+            </div>
+            <div class="mr-6">
+              <a
+                href="#"
+                class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-900 active:"
+              >
+                Explore More Books
+              </a>
+            </div>
+          </header>
+          <div className="flex flex-row">
+            {/* Left Column */}
+            <div className="flex flex-col w-1/2 p-8 mt-8">
+              {/* 1 */}
+              <h1 className="text-4xl font-bold mt-0 lg:mt-8">
+                Hey I'm Atomic Habits GPT.
+              </h1>
+              {/* 2 */}
+              <p className="text-lg mt-4">
+                Uncover habit secrets, ask me any question and get{" "}
+                <span className="font-bold font-normal lg:font-bold">
+                  book-sourced
+                </span>{" "}
+                answers.
+              </p>
+              {/* 3 */}
+              <p className="font-bold mt-8">Ask me a question</p>
+              {/* 4 */}
+              <div class="flex items-center mt-2">
+                <div class="relative w-full">
+                  <input
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    type="text"
+                    placeholder="How to stop procrastinating?"
+                    class="pr-12 w-full bg-white rounded-lg border border-black py-2 px-4"
+                  />
+                  <button
+                    id="btnSubmit"
+                    onClick={() => generateAnswer("none")}
+                    class="absolute right-0 top-0 h-full bg-black text-white flex items-center justify-center rounded-r-lg"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                    ></path>
-                  </svg>
-                </button>
-    
+                    <svg
+                      width="40"
+                      height="30"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M23.9747 25.7429C19.5576 29.2807 13.0918 29.0022 8.9972 24.9076C4.6038 20.5142 4.6038 13.3911 8.9972 8.99769C13.3906 4.60429 20.5137 4.60429 24.9071 8.99769C29.0017 13.0923 29.2802 19.558 25.7424 23.9751L34.3352 32.5679C34.8233 33.056 34.8233 33.8475 34.3352 34.3356C33.847 34.8238 33.0556 34.8238 32.5674 34.3356L23.9747 25.7429ZM10.765 23.1398C7.34788 19.7227 7.34788 14.1825 10.765 10.7655C14.1821 7.34836 19.7222 7.34837 23.1393 10.7655C26.5539 14.18 26.5564 19.7146 23.1469 23.1323C23.1443 23.1348 23.1418 23.1373 23.1393 23.1398C23.1368 23.1423 23.1343 23.1448 23.1318 23.1473C19.7141 26.5569 14.1795 26.5544 10.765 23.1398Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col items-center pt-10">
-                  <ImageCarousel />
-                  <div className={'mt-5'}>
-                  <a
-                    href="https://bamitsmanas.gumroad.com/l/the-most-awesome-atomic-habits-guide-in-the-universe?layout=profile"
-                    target="__blank"
-                    className="p-3 text-2xl font-bold text-center text-white bg-black rounded-xl"
+              {/* 5 */}
+              <p className="font-bold mt-8">Or try one of these</p>
+
+              <div className="flex flex-wrap mt-2">
+                <div className="bg-white border border-black rounded-lg py-1 px-4 mr-4 mb-4">
+                  <p
+                    className="font-bold"
+                    onClick={() => generateAnswer("Quitting Smoking?")}
                   >
-                    Actualise Your Potential Now
-                  </a>
+                    Quitting smoking?
+                  </p>
+                </div>
+                <div className="bg-white border border-black rounded-lg py-1 px-4 mb-4">
+                  <p
+                    className="font-bold"
+                    onClick={() => generateAnswer("Quitting Smoking?")}
+                  >
+                    Building self-discipline?
+                  </p>
                 </div>
               </div>
-            </div> 
+              {/* 6 */}
             </div>
-      
+            {/* Right Column */}
+            <RightColumn></RightColumn>
+          </div>
+        </div>
 
         <div ref={answerRef}>
           {showResult ? (
@@ -194,26 +288,9 @@ export default function Home({ bookData }) {
         {`
           body {
             --bg-color: ${bookData.primary};
-            --dot-color: ${bookData.secondary};
 
-            /* Dimensions */
-            --dot-size: 3px;
-            --dot-space: 22px;
 
-            background: linear-gradient(
-                  90deg,
-                  var(--bg-color) calc(var(--dot-space) - var(--dot-size)),
-                  transparent 1%
-                )
-                center,
-              linear-gradient(
-                  var(--bg-color) calc(var(--dot-space) - var(--dot-size)),
-                  transparent 1%
-                )
-                center,
-              var(--dot-color);
-            background-size: var(--dot-space) var(--dot-space);
-          }
+            background-color: var(--bg-color);
           a {
             color: inherit;
             text-decoration: none;
@@ -237,7 +314,7 @@ export async function getServerSideProps(context) {
 
   const { data: books, error } = await supabase
     .from("book-database")
-    .select("primary_col, secondary_col")
+    .select("primary_col")
     .eq("book_name", bookName)
     .single();
 
@@ -251,7 +328,6 @@ export async function getServerSideProps(context) {
     props: {
       bookData: {
         primary: books.primary_col,
-        secondary: books.secondary_col,
       },
     },
   };
