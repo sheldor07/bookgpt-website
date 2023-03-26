@@ -1,11 +1,11 @@
 import Link from 'next/link'
 export default function HeroText(){
     return(
-    <div className="flex flex-col items-center m-10">
-    <div className="mt-16 font-extrabold text-center text-transparent lg:text-9xl text-8xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
-      Making Books Come Alive
+    <div className="flex flex-col items-center">
+    <div className="mt-24 font-extrabold text-center text-transparent lg:text-9xl text-8xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
+    ChatGPT, but  for books.
     </div>
-    <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600">
+    <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 px-52 lg:mt-24 lg:px-72">
       BookGPT is the ultimate solution for book lovers who want to keep up
       with the latest literary trends but don't have the time to read every
       book. Our AI-powered search reads the book for you, so you can get the

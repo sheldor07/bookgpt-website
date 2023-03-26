@@ -8,15 +8,15 @@ import BookCard from "./components/BookCard"
 import {properCase} from "../utils/proper-case"
 export default function Home({books}) {
   return (
-    <div className="overflow-auto " >
+    <div className="overflow-auto m" >
       <Header/>
-      <div className="xl:mx-24">
+      <div className="">
      <HeroText/>
-     <div>
-      <div className="text-5xl text-white text-bolder">explore our book catalog</div>
-      <div className="grid grid-cols-1 gap-5 p-10 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
+     <div className="mx-24 mt-24">
+      <div className="p-1 pb-20 lg:text-left text-center text-7xl font-bold bg-gradient-to-r text-transparent bg-clip-text from-[#7928CA] to-[#FF0080]">explore our book catalog</div>
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
         {books.map((book) => (
-          <BookCard key={book.id}showName={properCase(book.book_name)} name={book.book_name} />
+          <BookCard key={book.id} book_description = {book.catalog_description}showName={properCase(book.book_name)} name={book.book_name} />
         ))}
         
       </div>
