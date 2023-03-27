@@ -5,7 +5,7 @@ export default function HeroText(){
     <div className="mt-24 font-extrabold text-center text-transparent lg:text-9xl text-8xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
     ChatGPT, but  for books.
     </div>
-    <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 px-52 lg:mt-24 lg:px-72">
+    <div className="px-10 mt-10 text-2xl font-normal leading-9 text-center text-gray-600 lg:mt-24 lg:px-72">
       BookGPT is the ultimate solution for book lovers who want to keep up
       with the latest literary trends but don't have the time to read every
       book. Our AI-powered search reads the book for you, so you can get the

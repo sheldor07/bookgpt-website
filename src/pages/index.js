@@ -8,11 +8,11 @@ import BookCard from "./components/BookCard"
 import {properCase} from "../utils/proper-case"
 export default function Home({books}) {
   return (
-    <div className="overflow-auto m" >
+    <div className="overflow-auto " >
       <Header/>
       <div className="">
      <HeroText/>
-     <div className="mx-24 mt-24">
+     <div className="mx-5 mt-24 lg:mx-24">
       <div className="p-1 pb-20 lg:text-left text-center text-7xl font-bold bg-gradient-to-r text-transparent bg-clip-text from-[#7928CA] to-[#FF0080]">explore our book catalog</div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
         {books.map((book) => (

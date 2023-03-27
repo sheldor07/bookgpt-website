@@ -10,13 +10,13 @@ export default function Home() {
   return (
     <div className="overflow-auto " >
       <Header/>
-      <div className="xl:mx-56">
+      <div className="mx-5 xl:mx-56">
      
       <div className="flex flex-col items-center text-center ">
-        <div className="p-2 mt-24 text-5xl font-extrabold text-transparent lg:text-7xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
+        <div className="p-2 mt-24 font-extrabold text-transparent text-7xl lg:text-7xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
           Why BookGPT?
         </div>
-        <div className="mt-10 text-2xl font-bold text-white lg:text-4xl">
+        <div className="mt-10 text-3xl font-bold text-white lg:text-4xl">
           Stay Ahead of the Game<br></br>with BookGPT
         </div>
         <div className="flex mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 lg:mt-16 ">
@@ -30,7 +30,7 @@ export default function Home() {
         </div>
       </div> 
       <div className="flex flex-col items-center text-center ">
-        <div className="p-2  mt-56 font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#FF0080] to-[#7928CA] ">
+        <div className="p-2 mt-10 lg:mt-56 font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#FF0080] to-[#7928CA] ">
           Our Solution
         </div>
         <div className="mt-10 text-2xl font-bold text-white lg:text-4xl">

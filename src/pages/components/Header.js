@@ -10,7 +10,11 @@ function MobileNav({open, setOpen}) {
   return (
       <div className={`absolute top-0 left-0 h-screen w-screen bg-black transform ${open ? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out filter drop-shadow-md `}>
           <div className="flex items-center justify-center h-20 bg-black filter drop-shadow-md"> {/*logo container*/}
-              <a className="text-xl font-semibold" href="/">LOGO</a>
+          <img
+                src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.png"
+                alt="Logo"
+                class=" rounded w-20 h-20"
+              />
           </div>
           <div className="flex flex-col ml-4">
               <a className="my-4 text-xl font-medium text-white" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
@@ -39,7 +43,11 @@ export default function Navbar() {
           <MobileNav open={open} setOpen={setOpen}/>
           <div className="flex items-center w-7/12">
               {/* logo */}
-              <img className="w-12 h-12 mr-4" src="/logo.png" alt="logo" />
+              <img
+                src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.png"
+                alt="Logo"
+                class=" rounded w-20 h-20"
+              />
               <a className="text-xl font-semibold text-white" href="/">GPT Book Club</a>
           </div>
           <div className="flex items-center justify-end w-5/12">

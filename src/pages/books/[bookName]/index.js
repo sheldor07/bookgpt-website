@@ -104,7 +104,39 @@ export default function Home({ bookData }) {
 
     btnSubmit.disabled = false;
   }
-
+  function SearchBox(){
+   return( <div class="flex items-center mt-2">
+   <div class="relative w-full">
+     <input
+       onChange={handleChange}
+       onKeyDown={handleKeyDown}
+       type="text"
+       placeholder="How to stop procrastinating?"
+       class="pr-12 w-full bg-white rounded-lg border border-black py-2 px-4"
+     />
+     <button
+       id="btnSubmit"
+       onClick={() => generateAnswer("none")}
+       class="absolute right-0 top-0 h-full bg-black text-white flex items-center justify-center rounded-r-lg"
+     >
+       <svg
+         width="40"
+         height="30"
+         viewBox="0 0 40 40"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg"
+       >
+         <path
+           fill-rule="evenodd"
+           clip-rule="evenodd"
+           d="M23.9747 25.7429C19.5576 29.2807 13.0918 29.0022 8.9972 24.9076C4.6038 20.5142 4.6038 13.3911 8.9972 8.99769C13.3906 4.60429 20.5137 4.60429 24.9071 8.99769C29.0017 13.0923 29.2802 19.558 25.7424 23.9751L34.3352 32.5679C34.8233 33.056 34.8233 33.8475 34.3352 34.3356C33.847 34.8238 33.0556 34.8238 32.5674 34.3356L23.9747 25.7429ZM10.765 23.1398C7.34788 19.7227 7.34788 14.1825 10.765 10.7655C14.1821 7.34836 19.7222 7.34837 23.1393 10.7655C26.5539 14.18 26.5564 19.7146 23.1469 23.1323C23.1443 23.1348 23.1418 23.1373 23.1393 23.1398C23.1368 23.1423 23.1343 23.1448 23.1318 23.1473C19.7141 26.5569 14.1795 26.5544 10.765 23.1398Z"
+           fill="white"
+         />
+       </svg>
+     </button>
+   </div>
+ </div>)
+  }
   const handleScroll = (ref) => {
     setTimeout(() => {
       window.scrollTo({
@@ -128,67 +160,37 @@ export default function Home({ bookData }) {
           <Header/>
           <div className="flex flex-col lg:flex-row ">
             {/* Left Column */}
-            <div className="flex flex-col w-full lg:w-1/2 p-8 mt-8">
+            <div className="flex flex-col w-full p-8 mt-8 lg:w-1/2">
               {/* 1 */}
-              <h1 className="text-6xl font-bold mt-0 lg:mt-8">
-                Hey I'm Atomic Habits GPT.
+              <h1 className="mt-0 text-6xl font-bold text-white lg:mt-8">
+                Hey I'm <span className="text-transparent bg-gradient-to-r from-yellow-500 to-red-400 bg-clip-text">Atomic Habits </span>GPT.
               </h1>
               {/* 2 */}
-              <p className="text-xl mt-4">
+              <p className="mt-4 text-xl text-white">
                 Uncover habit secrets, ask me any question and get{" "}
-                <span className="font-bold font-normal lg:font-bold">
+                <span className="font-normal font-bold lg:font-bold">
                   book-sourced
                 </span>{" "}
                 answers.
               </p>
-              <p className="font-bold text-xl mt-8">Ask me a question</p>
-
-              <div class="flex items-center mt-2">
-                <div class="relative w-full">
-                  <input
-                    onChange={handleChange}
-                    onKeyDown={handleKeyDown}
-                    type="text"
-                    placeholder="How to stop procrastinating?"
-                    class="pr-12 w-full bg-white rounded-lg border border-black py-2 px-4"
-                  />
-                  <button
-                    id="btnSubmit"
-                    onClick={() => generateAnswer("none")}
-                    class="absolute right-0 top-0 h-full bg-black text-white flex items-center justify-center rounded-r-lg"
-                  >
-                    <svg
-                      width="40"
-                      height="30"
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M23.9747 25.7429C19.5576 29.2807 13.0918 29.0022 8.9972 24.9076C4.6038 20.5142 4.6038 13.3911 8.9972 8.99769C13.3906 4.60429 20.5137 4.60429 24.9071 8.99769C29.0017 13.0923 29.2802 19.558 25.7424 23.9751L34.3352 32.5679C34.8233 33.056 34.8233 33.8475 34.3352 34.3356C33.847 34.8238 33.0556 34.8238 32.5674 34.3356L23.9747 25.7429ZM10.765 23.1398C7.34788 19.7227 7.34788 14.1825 10.765 10.7655C14.1821 7.34836 19.7222 7.34837 23.1393 10.7655C26.5539 14.18 26.5564 19.7146 23.1469 23.1323C23.1443 23.1348 23.1418 23.1373 23.1393 23.1398C23.1368 23.1423 23.1343 23.1448 23.1318 23.1473C19.7141 26.5569 14.1795 26.5544 10.765 23.1398Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
+              <p className="mt-8 text-xl font-bold text-transparent bg-gradient-to-r from-yellow-500 to-red-400 bg-clip-text">Ask me a question</p>
+              <SearchBox/>
+             
               {/* 5 */}
-              <p className="font-bold mt-8 text-xl">Or try one of these</p>
+              <p className="mt-8 text-xl font-bold text-white">Or try one of these</p>
 
               <div className="flex flex-wrap mt-2">
-                <div className="bg-white border border-black rounded-lg py-1 px-4 mr-4 mb-4">
+                <div className="px-4 py-1 mb-4 mr-4 bg-white border border-black rounded-lg">
                   <p
-                    className="font-bold text-xl"
+                    className="text-xl font-bold "
                     onClick={() => generateAnswer("Quitting Smoking?")}
                   >
                     Quitting smoking?
                   </p>
                 </div>
-                <div className="bg-white border border-black rounded-lg py-1 px-4 mb-4">
+                <div className="px-4 py-1 mb-4 bg-white border border-black rounded-lg">
                   <p
-                    className="font-bold text-xl"
+                    className="text-xl font-bold"
                     onClick={() => generateAnswer("Quitting Smoking?")}
                   >
                     Building self-discipline?
@@ -222,7 +224,7 @@ export default function Home({ bookData }) {
       <style global jsx>
         {`
           body {
-            --bg-color: ${bookData.primary};
+            --bg-color: black;
 
 
             background-color: var(--bg-color);
