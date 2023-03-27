@@ -1,13 +1,11 @@
 import Head from "next/head";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 //importing components
 import Header from "../components/Header"
 import Footer from "../components/Footer";
 import RightColoumn from "../components/RightColoumn"
 import Answer from "../components/Answer"
-import SearchBox from "../components/SearchBox"
 
 //importing
 import { supabase } from "../../../utils/supabase";

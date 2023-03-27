@@ -45,8 +45,7 @@ export default function Answer({
     return formattedParagraphs;
   };
   console.log("got result", gotResult);
-  const primary_col = bookData.primary;
-  const secondary_col = bookData.secondary;
+  const primary_col = bookData===undefined?'#ffff':bookData.primary;
   return (
     <div className={`xl:px-52 px-10 mt-20`}>
       <div className={`grid grid-cols-1 rounded-2xl lg:grid-cols-2`}>
