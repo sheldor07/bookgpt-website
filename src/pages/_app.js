@@ -1,5 +1,6 @@
 
 import '@/styles/globals.css'
+import 'tailwindcss/tailwind.css';
 import Head from 'next/head'
 export default function App({ Component, pageProps }) {
   return(
@@ -10,6 +11,7 @@ export default function App({ Component, pageProps }) {
               name="viewport" 
               content="width=device-width, initial-scale=1.0">
           </meta>
+          
         </Head>
         <Component {...pageProps} />
     </>

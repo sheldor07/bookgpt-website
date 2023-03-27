@@ -21,7 +21,7 @@ const Carousels = ({ paragraphs }) => {
   };
 
   return (
-    <div className="relative min-h-32">
+    <div className="relative min-h-lg">
       <div className="absolute top-0 left-0 w-full h-full">
         {paragraphs &&
           paragraphs.map((paragraph, index) => (
@@ -37,13 +37,13 @@ const Carousels = ({ paragraphs }) => {
           ))}
       </div>
       <button
-        className="absolute left-0 z-10 top-1/2 transform -translate-y-1/2 p-2"
+        className="absolute left-0 z-10 p-2 transform -translate-y-1/2 top-1/2"
         onClick={() => cycle(-1)}
       >
         <div className="text-5xl font-semibold text-black">‹</div>
       </button>
       <button
-        className="absolute right-0 z-10 top-1/2 transform -translate-y-1/2 p-2"
+        className="absolute right-0 z-10 p-2 transform -translate-y-1/2 top-1/2"
         onClick={() => cycle(1)}
       >
         <div className="text-5xl font-semibold text-black">›</div>

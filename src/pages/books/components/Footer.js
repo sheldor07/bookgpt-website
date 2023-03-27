@@ -1,8 +1,7 @@
-import homeStyles from "../styles/Home.module.css";
+
 export default function Footer() {
     return(<footer
         id="footer"
-        className={homeStyles.footer}
         style={{ textAlign: "center" }}
       >
         Created with 💙 by{" "}

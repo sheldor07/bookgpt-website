@@ -18,3 +18,19 @@ a:active{
   color: inherit;
   text-decoration: none;
 }
+.carousel-image {
+  position: absolute;
+  transition: opacity 1s ease-in-out;
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}

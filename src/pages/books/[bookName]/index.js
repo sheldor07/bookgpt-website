@@ -1,14 +1,18 @@
 import Head from "next/head";
-import Answer from "../components/Answer";
-import Footer from "../components/Footer";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
-import * as homeStyles from "../styles/Home.module.css";
 import Image from "next/image";
-// import 'bootstrap/dist/css/bootstrap.css'
+//importing components
+import Header from "../components/Header"
+import Footer from "../components/Footer";
+import RightColoumn from "../components/RightColoumn"
+import Answer from "../components/Answer"
+import SearchBox from "../components/SearchBox"
+
+//importing
 import { supabase } from "../../../utils/supabase";
 import { properCase } from "../../../utils/proper-case";
-import ImageCarousel from "../components/ImageCarousel";
+
 export default function Home({ bookData }) {
   console.log(bookData);
   const router = useRouter();
@@ -30,55 +34,14 @@ export default function Home({ bookData }) {
     setQuestion(event.target.value);
   }
 
-  function RightColumn() {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [slides, setSlides] = useState([
-      "https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/notion-mockup-1.png",
-      "https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/notion-mockup-2.png",
-      "https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/notion-mockup-3.png",
-    ]);
-
-    // Set the current slide
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentSlide(
-          currentSlide === slides.length - 1 ? 0 : currentSlide + 1
-        );
-      }, 5000);
-      return () => clearInterval(interval);
-    }, [currentSlide, slides]);
-
-    return (
-      <div className="flex flex-col w-1/2">
-        {/* 1 */}
-        <div className="flex justify-center items-center mt-8 flex-grow">
-          <img
-            src={slides[currentSlide]}
-            alt={`Image ${currentSlide + 1}`}
-            className="w-10/12 lg:w-11/12 object-cover rounded-lg"
-          />
-        </div>
-        {/* 1 */}
-        <div className="ml-8 mr-8">
-          <button className="bg-[#000000] text-white py-2 px-4 rounded-lg mt-4">
-            Get the Ultimate Notion Template
-          </button>
-          {/* 2 */}
-          <p className="text-[18px] mt-4">
-            Experience Chapter Summaries, Stellar Quotes, Real-Life Scenarios &
-            More.
-          </p>
-        </div>
-      </div>
-    );
-  }
+  
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       generateAnswer();
     }
   };
-  async function generateAnswer(searchQuery = "none") {
+  async function generateAnswer(searchQuery) {
     let btnSubmit = document.getElementById("btnSubmit");
     if (searchQuery != "none") {
       setQuestion(searchQuery);
@@ -161,53 +124,25 @@ export default function Home({ bookData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main id="main">
-        <div className={`px-52`}>
-          <header class="flex justify-between items-center py-4">
-            <div class="ml-6 flex items-center">
-              <img
-                src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.jpeg"
-                alt="Logo"
-                class="h-8 mr-4 rounded"
-              />
-              <a href="#" class="text-gray-600 hover:text-gray-900">
-                Join GPT Book Club
-              </a>
-            </div>
-            <div class="hidden md:block">
-              <a href="#" class="text-gray-600 hover:text-gray-900 mr-4">
-                Notion Template
-              </a>
-              <a href="#" class="text-gray-600 hover:text-gray-900">
-                Contact
-              </a>
-            </div>
-            <div class="mr-6">
-              <a
-                href="#"
-                class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-900 active:"
-              >
-                Explore More Books
-              </a>
-            </div>
-          </header>
-          <div className="flex flex-row">
+        <div className={`xl:px-52`}>
+          <Header/>
+          <div className="flex flex-col lg:flex-row ">
             {/* Left Column */}
-            <div className="flex flex-col w-1/2 p-8 mt-8">
+            <div className="flex flex-col w-full lg:w-1/2 p-8 mt-8">
               {/* 1 */}
-              <h1 className="text-4xl font-bold mt-0 lg:mt-8">
+              <h1 className="text-6xl font-bold mt-0 lg:mt-8">
                 Hey I'm Atomic Habits GPT.
               </h1>
               {/* 2 */}
-              <p className="text-lg mt-4">
+              <p className="text-xl mt-4">
                 Uncover habit secrets, ask me any question and get{" "}
                 <span className="font-bold font-normal lg:font-bold">
                   book-sourced
                 </span>{" "}
                 answers.
               </p>
-              {/* 3 */}
-              <p className="font-bold mt-8">Ask me a question</p>
-              {/* 4 */}
+              <p className="font-bold text-xl mt-8">Ask me a question</p>
+
               <div class="flex items-center mt-2">
                 <div class="relative w-full">
                   <input
@@ -240,12 +175,12 @@ export default function Home({ bookData }) {
                 </div>
               </div>
               {/* 5 */}
-              <p className="font-bold mt-8">Or try one of these</p>
+              <p className="font-bold mt-8 text-xl">Or try one of these</p>
 
               <div className="flex flex-wrap mt-2">
                 <div className="bg-white border border-black rounded-lg py-1 px-4 mr-4 mb-4">
                   <p
-                    className="font-bold"
+                    className="font-bold text-xl"
                     onClick={() => generateAnswer("Quitting Smoking?")}
                   >
                     Quitting smoking?
@@ -253,7 +188,7 @@ export default function Home({ bookData }) {
                 </div>
                 <div className="bg-white border border-black rounded-lg py-1 px-4 mb-4">
                   <p
-                    className="font-bold"
+                    className="font-bold text-xl"
                     onClick={() => generateAnswer("Quitting Smoking?")}
                   >
                     Building self-discipline?
@@ -263,7 +198,7 @@ export default function Home({ bookData }) {
               {/* 6 */}
             </div>
             {/* Right Column */}
-            <RightColumn></RightColumn>
+            <RightColoumn/>
           </div>
         </div>
 
