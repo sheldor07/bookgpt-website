@@ -10,6 +10,8 @@ export default function Answer({
   para2,
   para3,
   gotResult,
+  gradientFrom,
+  gradientTo,
 }) {
   const formatParagraphs = (paragraphs) => {
     const formattedParagraphs = [];
@@ -45,13 +47,13 @@ export default function Answer({
     return formattedParagraphs;
   };
   console.log("got result", gotResult);
-  const primary_col = bookData===undefined?'#ffff':bookData.primary;
+  
   return (
     <div className={`xl:px-52 px-10 mt-20`}>
       <div className={`grid grid-cols-1 rounded-2xl lg:grid-cols-2`}>
         <div className={`flex flex-col `}>
           <div
-            className={`mt-10 pl-3 text-center font-bold ml-10 lg:text-left text-4xl`}
+            className={`mt-10 pl-3 text-center text-transparent font-bold ml-10 lg:text-left text-4xl bg-gradient-to-r from-${gradientFrom} to-${gradientTo} bg-clip-text`}
           >
             {showName} says...
           </div>

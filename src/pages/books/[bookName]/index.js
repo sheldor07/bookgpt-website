@@ -131,7 +131,7 @@ export default function Home({ bookData }) {
             <div className="flex flex-col w-full p-8 mt-8 lg:w-1/2">
               {/* 1 */}
               <h1 className="mt-0 text-6xl font-bold text-white lg:mt-8">
-                Hey I'm <span className={`text-transparent bg-gradient-to-r from-${bookData.gradientFrom} to-${bookData.gradientTo} bg-clip-text`}>{showName} </span>GPT.
+                Hey I'm <span className={`bg-gradient-to-r text-transparent bg-clip-text from-${bookData.gradientFrom} to-${bookData.gradientTo}`}>{showName} </span>GPT.
               </h1>
               {/* 2 */}
               <p className="mt-4 text-xl text-white">
@@ -154,7 +154,7 @@ export default function Home({ bookData }) {
      <button
        id="btnSubmit"
        onClick={() => generateAnswer("none")}
-       class={`absolute right-0 top-0 h-full bg-black text-white flex items-center justify-center rounded-r-lg text-transparent bg-gradient-to-r from-${bookData.gradientFrom} to-${bookData.gradientTo} bg-clip-text`}
+       class={`absolute right-0 top-0 h-full text-white flex items-center justify-center rounded-r-lg bg-gradient-to-r from-${bookData.gradientFrom} to-${bookData.gradientTo} bg-clip-text`}
      >
        <svg
          width="40"
@@ -212,6 +212,8 @@ export default function Home({ bookData }) {
               para1={passages[0]}
               para2={passages[1]}
               para3={passages[2]}
+              gradientFrom={bookData.gradientFrom}
+              gradientTo={bookData.gradientTo}
             />
           ) : (
             <div></div>
