@@ -139,9 +139,7 @@ export default function Home({ bookData }) {
               {/* 1 */}
               <h1 className="mt-0 text-6xl font-bold text-white lg:mt-8">
       Hey I'm{' '}
-      <span
-        className={"bg-clip-text bg-gradient-to-r from-" + bookData.gradientFrom + " to-" + bookData.gradientTo + " text-transparent"}
-      >
+      <span style={{ backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`, backgroundClip: "text", WebkitBackgroundClip: "text", color: "transparent" }}>
         {showName}
       </span>{' '}
       GPT.
@@ -165,10 +163,13 @@ export default function Home({ bookData }) {
        className="w-full px-4 py-2 pr-12 bg-white border border-black rounded-lg"
      />
      <button
-       id="btnSubmit"
-       onClick={() => generateAnswer("none")}
-       className={"absolute right-0 top-0 h-full bg-gradient-to-r from-" + bookData.gradientFrom + " to-" + bookData.gradientTo + " flex items-center justify-center rounded-r-lg"}
-     >
+  id="btnSubmit"
+  onClick={() => generateAnswer("none")}
+  style={{
+    backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`
+  }}
+  className="absolute top-0 right-0 flex items-center justify-center h-full rounded-r-lg"
+>
        <svg
          width="40"
          height="30"
@@ -267,6 +268,16 @@ export default function Home({ bookData }) {
   );
 }
 
+// Convert Tailwind color name to CSS color value
+function colorNameToValue(colorName) {
+  const colorValues = {
+    "amber-400": "#f59e0b",
+    "orange-400": "#fb923c",
+    // Add more color name/value pairs if needed
+  };
+  return colorValues[colorName] || colorName;
+}
+
 export async function getServerSideProps(context) {
   const { bookName } = context.query;
 
@@ -284,8 +295,8 @@ export async function getServerSideProps(context) {
   return {
     props: {
       bookData: {
-        gradientFrom: books.gradient_from_col,
-        gradientTo: books.gradient_to_col,
+        gradientFrom: (books.gradient_from_col),
+        gradientTo: (books.gradient_to_col),
         placeholderText: books.placeholder_text,
         suggestedQueries: books.suggested_queries,
         
