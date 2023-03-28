@@ -4,7 +4,7 @@ export default function BookCard(props) {
   return (
     <Link
       href={{
-        pathname: "/books/[bookName]",
+        pathname: "/[bookName]",
         query: { bookName: props.name },
       }}
     >

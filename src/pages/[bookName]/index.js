@@ -2,14 +2,14 @@ import Head from "next/head";
 import { useState, useRef, useEffect, use } from "react";
 import { useRouter } from "next/router";
 //importing components
-import Header from "../components/Header"
-import Footer from "../../components/Footer";
-import RightColoumn from "../components/RightColoumn"
-import Answer from "../components/Answer"
+import Header from "../books/components/Header"
+import Footer from "../components/Footer";
+import RightColoumn from "../books/components/RightColoumn"
+import Answer from "../books/components/Answer"
 
 //importing
-import { supabase } from "../../../utils/supabase";
-import { properCase } from "../../../utils/proper-case";
+import { supabase } from "../../utils/supabase";
+import { properCase } from "../../utils/proper-case";
 
 export default function Home({ bookData }) {
   console.log(bookData);
@@ -132,7 +132,7 @@ export default function Home({ bookData }) {
       </Head>
       <main id="main">
         <div className={`xl:px-52`}>
-          <Header/>
+          <Header gumroadUrl={bookData.gumroadUrl}/>
           <div className="flex flex-col lg:flex-row ">
             {/* Left Column */}
             <div className="flex flex-col w-full p-8 mt-8 lg:w-1/2">
@@ -283,7 +283,7 @@ export async function getServerSideProps(context) {
 
   const { data: books, error } = await supabase
   .from("book-database")
-  .select("gradient_from_col, gradient_to_col, placeholder_text, suggested_queries")
+  .select("gradient_from_col, gradient_to_col, placeholder_text, suggested_queries,gumroad_url")
   .eq("book_name", bookName)
   .single();
   if (error) {
@@ -299,7 +299,7 @@ export async function getServerSideProps(context) {
         gradientTo: (books.gradient_to_col),
         placeholderText: books.placeholder_text,
         suggestedQueries: books.suggested_queries,
-        
+        gumroadUrl: books.gumroad_url,
       },
     },
   };
