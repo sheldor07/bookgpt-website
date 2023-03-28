@@ -139,7 +139,7 @@ export default function Home({ bookData }) {
               {/* 1 */}
               <h1 className="mt-0 text-6xl font-bold text-white lg:mt-8">
       Hey I'm{' '}
-      <span style={{ backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`, backgroundClip: "text", WebkitBackgroundClip: "text", color: "transparent" }}>
+      <span style={{color: "transparent", backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`, backgroundClip: "text", WebkitBackgroundClip: "text",}}>
         {showName}
       </span>{' '}
       GPT.
@@ -171,7 +171,7 @@ export default function Home({ bookData }) {
   className="absolute top-0 right-0 flex items-center justify-center h-full rounded-r-lg"
 >
        <svg
-         width="40"
+         width="40"ƒ
          height="30"
          viewBox="0 0 40 40"
          fill="none"
@@ -212,7 +212,7 @@ export default function Home({ bookData }) {
               {/* 6 */}
             </div>
             {/* Right Column */}
-            <RightColoumn/>
+            <RightColoumn bookName={bookName} gradientFrom={bookData.gradientFrom} gradientTo={bookData.gradientTo}/>
           </div>
         </div>
 

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function RightColumn() {
+export default function RightColumn({bookName, gradientFrom,gradientTo }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slides, setSlides] = useState([
-    "https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/notion-mockup-1.png",
-    "https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/notion-mockup-2.png",
-    "https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/notion-mockup-3.png",
+    `https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-1.png`,
+    `https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-2.png`,
+    `https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-3.png`,
   ]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function RightColumn() {
   }, [currentSlide, slides]);
 
   return (
-    <div className="w-full lg:w-1/2">
+    <div className="w-full mt-24 lg:w-1/2">
       <div
         className="relative flex items-center justify-center flex-grow lg:mt-8"
         style={{ minHeight: "420px" }}>
@@ -30,13 +30,14 @@ export default function RightColumn() {
             <img
               src={slide}
               alt={`Image ${index + 1}`}
-              className="object-cover rounded-lg w-12/12 "
+              className="object-fit rounded-lg w-12/12 "
+              style={{ width: '700px', height:'auto' }}
             />
           </div>
         ))}
       </div>
-      <div className="mt-10 text-center">
-        <button className="px-4 py-2 text-xl text-white bg-black rounded-lg lg:mt-4">
+      <div className="mt-16 text-center">
+        <button className="px-4 py-2 text-xl text-black font-bold  rounded-lg lg:mt-4" style={{ backgroundImage: `linear-gradient(90deg, ${gradientFrom}, ${gradientTo})`}}>
           Get the Ultimate Notion Template
         </button>
         <p className="mt-4 text-lg">

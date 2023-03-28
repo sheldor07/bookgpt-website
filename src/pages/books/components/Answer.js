@@ -53,8 +53,9 @@ export default function Answer({
       <div className={`grid grid-cols-1 rounded-2xl lg:grid-cols-2`}>
         <div className={`flex flex-col `}>
           <div
-            className={`mt-10 pl-3 text-center text-transparent font-bold ml-10 lg:text-left text-4xl bg-gradient-to-r from-${gradientFrom} to-${gradientTo} bg-clip-text`}
-          >
+            className={`mt-10 pl-3 text-center text-transparent font-bold ml-10 lg:text-left text-xl`}
+            style={{color: "transparent", backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`, backgroundClip: "text", WebkitBackgroundClip: "text",}}
+            >
             {showName} says...
           </div>
           <div
