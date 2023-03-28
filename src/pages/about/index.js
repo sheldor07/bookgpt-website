@@ -19,7 +19,7 @@ export default function Home() {
         <div className="mt-10 text-3xl font-bold text-white lg:text-4xl">
           Stay Ahead of the Game<br></br>with BookGPT
         </div>
-        <div className="flex mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 lg:mt-16 ">
+        <div className="mx-52 flex mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 lg:mt-16 ">
           Ever felt like you're missing out on the latest bestsellers or classic
           books? Life can get busy, and it's not always easy to find the time to
           sit down and read. That's where BookGPT comes in - we offer an
@@ -30,7 +30,7 @@ export default function Home() {
         </div>
       </div> 
       <div className="flex flex-col items-center text-center ">
-        <div className="p-2 mt-10 lg:mt-56 font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#FF0080] to-[#7928CA] ">
+        <div className="p-2 mt-10 lg:mt-24 font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#FF0080] to-[#7928CA] ">
           Our Solution
         </div>
         <div className="mt-10 text-2xl font-bold text-white lg:text-4xl">
@@ -40,7 +40,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:gap-10 sm:grid-cols-2">
           <div className="mt-10 lg:mt-16">
           <Image
-            className="rounded-sm shadow-6xl shadow-grey-800"
+            className="flex-shrink-0 rounded-lg shadow-6xl shadow-grey-800 w-[500px]"
             src={landingPic1}
           ></Image>
            
@@ -57,7 +57,7 @@ export default function Home() {
         </div>  
         <div className="flex mt-10">
           <Image
-            className="flex-shrink-0 rounded-sm shadow-6xl shadow-grey-800"
+            className="flex-shrink-0 rounded-lg shadow-6xl shadow-grey-800 w-[500px]"
             src={landingPic2}
           ></Image>
            
@@ -75,7 +75,7 @@ export default function Home() {
         </div>
         <div className="mt-10">
           <Image
-            className="rounded-sm shadow-6xl shadow-grey-800"
+            className="flex-shrink-0 rounded-lg shadow-6xl shadow-grey-800 w-[500px]"
             src={landingPic3}
           ></Image>
            

@@ -13,7 +13,7 @@ export default function Footer() {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.yajatgulati.com"
+              href="https://www.bento.me/yajatgulati"
               className="underline"
             >
               Yajat Gulati
