@@ -58,6 +58,7 @@ export default function Home({ bookData }) {
     handleScroll(answerRef.current);
     let check = "false";
     console.log("query", question);
+    console.log("bg gradients color", gradientFrom, gradientTo);
     const passageResponse = await fetch("/api/passages", {
       method: "POST",
       headers: {
@@ -139,7 +140,7 @@ export default function Home({ bookData }) {
               <h1 className="mt-0 text-6xl font-bold text-white lg:mt-8">
       Hey I'm{' '}
       <span
-        className={`bg-clip-text bg-gradient-to-r from-${bookData.gradientFrom} to-${bookData.gradientTo} text-transparent`}
+        className={"bg-clip-text bg-gradient-to-r from-" + bookData.gradientFrom + " to-" + bookData.gradientTo + " text-transparent"}
       >
         {showName}
       </span>{' '}
@@ -166,7 +167,7 @@ export default function Home({ bookData }) {
      <button
        id="btnSubmit"
        onClick={() => generateAnswer("none")}
-       className={`absolute right-0 top-0 h-full bg-gradient-to-r from-${bookData.gradientFrom} to-${bookData.gradientTo} flex items-center justify-center rounded-r-lg  `}
+       className={"absolute right-0 top-0 h-full bg-gradient-to-r from-" + bookData.gradientFrom + " to-" + bookData.gradientTo + " flex items-center justify-center rounded-r-lg"}
      >
        <svg
          width="40"
