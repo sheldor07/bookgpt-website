@@ -46,21 +46,25 @@ export default function Answer({
 
     return formattedParagraphs;
   };
+  
   console.log("got result", gotResult);
   
   return (
     <div className={`xl:px-52 px-10 mt-20`}>
       <div className={`grid grid-cols-1 rounded-2xl lg:grid-cols-2`}>
         <div className={`flex flex-col `}>
+          
           <div
-            className={`mt-10 pl-3 text-center text-transparent font-bold ml-10 lg:text-left text-xl`}
-            style={{color: "transparent", backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`, backgroundClip: "text", WebkitBackgroundClip: "text",}}
+            className={`mt-10 pl-3 text-center text-transparent font-bold ml-10 lg:text-left text-5xl`}
+            style={{color: "transparent",   backgroundImage: bookData
+            ? `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`
+            : "", backgroundClip: "text", WebkitBackgroundClip: "text",}}
             >
             {showName} says...
           </div>
           <div
-            className={`m-10 p-5 rounded-xl bg-[white] border-2 border-black border-solid`}
-          >
+            className={`m-10 p-5 rounded-xl bg-[white]`}
+          ><div></div>
             {gotResult ? (
               <div>{answer}</div>
             ) : (

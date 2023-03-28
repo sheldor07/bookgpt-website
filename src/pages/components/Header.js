@@ -41,7 +41,7 @@ export default function Navbar() {
 
   const [open, setOpen] = useState(false)
   return (
-      <nav className="flex items-center h-20 px-1 mx-24 py-4 bg-black filter drop-shadow-md">
+      <nav className="flex items-center h-20 px-4 py-4 bg-black filter drop-shadow-md">
           <MobileNav open={open} setOpen={setOpen}/>
           <div className="flex items-center w-7/12">
               {/* logo */}
