@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function RightColumn({bookName, gradientFrom,gradientTo }) {
+export default function RightColumn({bookName, gradientFrom,gradientTo, gumroadUrl }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slides, setSlides] = useState([
     `https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-1.png`,
@@ -27,12 +27,14 @@ export default function RightColumn({bookName, gradientFrom,gradientTo }) {
             }`}
             key={index}
           >
-            <img
-              src={slide}
-              alt={`Image ${index + 1}`}
-              className="object-fit rounded-lg w-12/12 "
-              style={{ width: '700px', height:'auto' }}
-            />
+            <a href={gumroadUrl} target="_blank" rel="noopener noreferrer">
+              <img
+                src={slide}
+                alt={`Image ${index + 1}`}
+                className="object-fit rounded-lg w-12/12 "
+                style={{ width: '700px', height:'auto' }}
+              />
+            </a>
           </div>
         ))}
       </div>

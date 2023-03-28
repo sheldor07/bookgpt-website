@@ -10,11 +10,13 @@ function MobileNav({open, setOpen}) {
   return (
       <div className={`absolute top-0 left-0 h-screen w-screen bg-black transform ${open ? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out filter drop-shadow-md `}>
           <div className="flex items-center justify-center h-20 bg-black filter drop-shadow-md"> {/*logo container*/}
+          <a href="/">
           <img
-                src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.png"
-                alt="Logo"
-                class=" rounded w-20 h-20"
-              />
+            src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.png"
+            alt="Logo"
+            className="w-20 h-20 rounded"
+          />
+        </a>
           </div>
           <div className="flex flex-col ml-4">
               <a className="my-4 text-xl font-medium text-white" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
@@ -43,11 +45,13 @@ export default function Navbar() {
           <MobileNav open={open} setOpen={setOpen}/>
           <div className="flex items-center w-7/12">
               {/* logo */}
-              <img
-                src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.png"
-                alt="Logo"
-                class=" rounded w-20 h-20"
-              />
+              <a href="/">
+          <img
+            src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.png"
+            alt="Logo"
+            className="w-20 h-20 rounded"
+          />
+        </a>
               <a className="text-xl font-semibold text-white" href="/">GPT Book Club</a>
           </div>
           <div className="flex items-center justify-end w-5/12">
@@ -71,8 +75,8 @@ export default function Navbar() {
                   <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/contact">
                       meet the team
                   </Link>
-                  <Link className="p-2"href="/templates">
-                    <button className='p-2 text-lg font-bold text-black bg-white rounded-xl'>get your 📚 now</button>
+                  <Link className="p-2"href="/knowledge-hub">
+                    <button className='px-6 p-2 text-lg font-bold text-black bg-white rounded-xl'>get your 📚 now</button>
                      
                   </Link>
               </div>
