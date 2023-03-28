@@ -46,6 +46,7 @@ export default function Answer({
 
     return formattedParagraphs;
   };
+  
   console.log("got result", gotResult);
   
   return (
@@ -54,7 +55,9 @@ export default function Answer({
         <div className={`flex flex-col `}>
           <div
             className={`mt-10 pl-3 text-center text-transparent font-bold ml-10 lg:text-left text-xl`}
-            style={{color: "transparent", backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`, backgroundClip: "text", WebkitBackgroundClip: "text",}}
+            style={{color: "transparent",   backgroundImage: bookData
+            ? `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`
+            : "", backgroundClip: "text", WebkitBackgroundClip: "text",}}
             >
             {showName} says...
           </div>
