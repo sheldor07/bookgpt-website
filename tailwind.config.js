@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   purge: [
     "./node_modules/flowbite/**/*.js",
     "./node_modules/flowbite-react/**/*.js",
@@ -10,6 +11,7 @@ module.exports = {
     "./[bookName]/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{html,js,ts,jsx,tsx}",
   ],  
+
   theme: {
     extend: {
       colors: {
@@ -18,5 +20,5 @@ module.exports = {
       },
     },
   },
-  darkMode: 'class',
+  darkMode: false,
 }

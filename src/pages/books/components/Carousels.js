@@ -5,7 +5,7 @@ const Carousels = ({ paragraphs }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => cycle(1), 5000);
+    const timer = setInterval(() => cycle(1), 10000);
     return () => clearInterval(timer);
   }, [activeIndex]);
 
@@ -21,7 +21,7 @@ const Carousels = ({ paragraphs }) => {
   };
 
   return (
-    <div className="relative m-10 min-h-lg">
+    <div className="relative m-10 min-h-xl">
       <div className="w-full h-full">
         {paragraphs &&
           paragraphs.map((paragraph, index) => (
@@ -32,7 +32,7 @@ const Carousels = ({ paragraphs }) => {
                 "opacity-100": activeIndex === index,
               })}
             >
-              {paragraph}
+              "&hellip; {paragraph} &hellip;"
             </div>
           ))}
       </div>

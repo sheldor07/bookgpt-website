@@ -30,16 +30,16 @@ export default function RightColumn() {
             <img
               src={slide}
               alt={`Image ${index + 1}`}
-              className="object-cover rounded-lg w-12/12 lg:w-11/12"
+              className="object-cover rounded-lg w-12/12 "
             />
           </div>
         ))}
       </div>
-      <div className="ml-8 mr-8 text-center">
-        <button className="px-4 py-2 text-white bg-black rounded-lg lg:mt-4">
+      <div className="mt-10 text-center">
+        <button className="px-4 py-2 text-xl text-white bg-black rounded-lg lg:mt-4">
           Get the Ultimate Notion Template
         </button>
-        <p className="text-[15px] mt-4">
+        <p className="mt-4 text-lg">
           Experience Chapter Summaries, Stellar Quotes, Real-Life Scenarios &
           More.
         </p>

@@ -12,7 +12,7 @@ export default function BookCard(props) {
         <div>
           <Image
             className="object-center"
-            src={`https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/atomic-habits/preview.png`}
+            src={`https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${props.name}/preview.png`}
             width={500}
             height={500}
           />
