@@ -2,11 +2,13 @@ export default function Header({gumroadUrl}) {
   return (
     <header className="flex items-center justify-between h-24 py-4 ">
       <div className="flex items-center ml-6">
-        <img
-          src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.png"
-          alt="Logo"
-          className="w-20 h-20 rounded"
-        />
+        <a href="/">
+          <img
+            src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.png"
+            alt="Logo"
+            className="w-20 h-20 rounded"
+          />
+        </a>
         <a
           href="/"
           className="px-2 text-xl font-bold text-transparent transition-all bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple"
@@ -23,7 +25,7 @@ export default function Header({gumroadUrl}) {
           Notion Template
         </a>
         <a
-          href="#"
+          href="/contact"
           className="mr-4 text-xl text-white transition-all duration-500 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-gradient-blue hover:to-gradient-purple hover:bg-black"
         >
           Contact
@@ -32,7 +34,7 @@ export default function Header({gumroadUrl}) {
 
       <div className="mr-6">
         <a
-          href="#"
+          href="/knowledge-hub"
           className="px-4 py-2 mr-4 text-xl text-white transition duration-500 ease-in-out transform bg-black rounded-md bg-gradient-to-r from-gradient-blue to-gradient-purple bg-black hover:scale-150"
         >
           Explore More Books

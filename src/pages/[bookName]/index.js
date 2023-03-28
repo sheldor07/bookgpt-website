@@ -212,7 +212,7 @@ export default function Home({ bookData }) {
               {/* 6 */}
             </div>
             {/* Right Column */}
-            <RightColoumn bookName={bookName} gradientFrom={bookData.gradientFrom} gradientTo={bookData.gradientTo}/>
+            <RightColoumn bookName={bookName} gradientFrom={bookData.gradientFrom} gradientTo={bookData.gradientTo} gumroadUrl = {bookData.gumroadUrl}/>
           </div>
         </div>
 
