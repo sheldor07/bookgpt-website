@@ -27,7 +27,7 @@ function MobileNav({open, setOpen}) {
                   meet the team
               </a>
               <a className="my-4 text-xl font-normal text-white" href="/contact" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-              <button className='p-2 font-bold text-black bg-white rounded-full'>templates</button>
+              <button className='p-2 text-lg font-bold text-black bg-white rounded-full'>get your 📚 now</button>
               </a>
               
           </div>  
@@ -52,7 +52,7 @@ export default function Navbar() {
           </div>
           <div className="flex items-center justify-end w-5/12">
 
-              <div className="relative z-50 flex flex-col items-center justify-between w-8 h-8 md:hidden" onClick={() => {
+              <div className="relative z-50 flex flex-col items-center justify-between w-8 h-8 xl:hidden" onClick={() => {
                   setOpen(!open)
               }}>
                   {/* hamburger button */}
@@ -61,22 +61,20 @@ export default function Navbar() {
                   <span className={`h-1 w-full bg-white rounded-lg transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-3.5" : ""}`} />
               </div>
 
-              <div className="hidden md:flex">
-                  <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/">
+              <div className="hidden xl:flex">
+                  <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent"href="/">
                     home
                   </Link>
-                  <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/about">
+                  <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent"href="/about">
                       about
                   </Link>
-                  <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"href="/contact">
+                  <Link className="p-4 text-lg text-gray-700 rounded hover:bg-gray-100 d:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent"href="/contact">
                       meet the team
                   </Link>
                   <Link className="p-2"href="/templates">
                     <button className='p-2 text-lg font-bold text-black bg-white rounded-full'>get your 📚 now</button>
-                     
-                  </Link>
-              </div>
+                    </Link>
           </div>
-      </nav>
-  )
-}
+      </div>
+  </nav>
+  )}
