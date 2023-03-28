@@ -139,7 +139,7 @@ export default function Home({ bookData }) {
               <h1 className="mt-0 text-6xl font-bold text-white lg:mt-8">
       Hey I'm{' '}
       <span
-        className={`bg-clip-text bg-gradient-to-r from-green-500 to-lime-500 text-transparent`}
+        className={`bg-clip-text bg-gradient-to-r from-${bookData.gradientFrom} to-${bookData.gradientTo} text-transparent`}
       >
         {showName}
       </span>{' '}
