@@ -6,7 +6,7 @@ export default function Footer() {
       >
         Created with 💙 by{" "}
         <a
-          style={{ textDecoration: "underline" }}
+          style={{ textDecoration: " underline" }}
           target="__blank"
           href="https://manasbam.com"
         >
@@ -15,7 +15,7 @@ export default function Footer() {
         and{" "}
         <a
           target="__blank"
-          style={{ textDecoration: "underline" }}
+          style={{ textDecoration: "text-white underline" }}
           href="https://github.com/sheldor07"
         >
           Yajat

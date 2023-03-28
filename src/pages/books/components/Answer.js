@@ -59,7 +59,7 @@ export default function Answer({
             className={`m-10 p-5 rounded-xl bg-[white] border-2 border-black border-solid`}
           >
             {gotResult ? (
-              { answer }
+              <div>{answer}</div>
             ) : (
               <div className="p-5 m-10 mx-0 space-y-2">
                 <div className="w-full h-5 bg-gray-300 rounded pulse"></div>
