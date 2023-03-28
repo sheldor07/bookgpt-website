@@ -8,9 +8,9 @@ export default function BookCard(props) {
         query: { bookName: props.name },
       }}
     >
-      <div className="rounded hover:bg-[#1b1b1b] shadow-white">
+      <div className="rounded-lg hover:shadow-[#1b1b1b] bg-grey p-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 border-white border-4 shadow-white">
         <div>
-          <Image
+          <img
             className="object-center"
             src={`https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${props.name}/preview.png`}
             width={500}
@@ -18,16 +18,7 @@ export default function BookCard(props) {
           />
         </div>
 
-        <div className="px-6 py-4">
-          <div className="mb-2 text-2xl font-bold bg-gradient-to-r text-transparent bg-clip-text from-[#7928CA] to-[#FF0080] ">
-            {props.showName + ` GPT`}
-            <p>
-              <span className="text-base font-normal text-gray-600 ">
-                {props.book_description}
-              </span>
-            </p>
-          </div>
-        </div>
+
       </div>
     </Link>
   );
