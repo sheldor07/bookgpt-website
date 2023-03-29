@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Carousels from "./Carousels";
-
+import { formatParagraphs } from "@/utils/formatParagraph";
 export default function Answer({
   showName,
   bookData,
@@ -13,49 +13,17 @@ export default function Answer({
   gradientFrom,
   gradientTo,
 }) {
-  const formatParagraphs = (paragraphs) => {
-    const formattedParagraphs = [];
-    let currentParagraph = "";
 
-    paragraphs.forEach((paragraph) => {
-      const wordCount = paragraph.split(" ").length;
-
-      if (wordCount < 50 && currentParagraph) {
-        currentParagraph += " " + paragraph;
-      } else {
-        if (currentParagraph) {
-          formattedParagraphs.push(currentParagraph);
-        }
-        currentParagraph = paragraph;
-      }
-
-      while (currentParagraph.split(" ").length > 100) {
-        const firstWords = currentParagraph.split(" ", 100).join(" ");
-        const remainingWords = currentParagraph
-          .split(" ")
-          .splice(100)
-          .join(" ");
-        formattedParagraphs.push(firstWords);
-        currentParagraph = remainingWords;
-      }
-    });
-
-    if (currentParagraph) {
-      formattedParagraphs.push(currentParagraph);
-    }
-
-    return formattedParagraphs;
-  };
   
   console.log("got result", gotResult);
   
   return (
-    <div className={`xl:px-52 px-10 mt-20`}>
+    <div className={`xl:px-52 px-10 mt-10`}>
       <div className={`grid grid-cols-1 rounded-2xl lg:grid-cols-2`}>
         <div className={`flex flex-col `}>
           
           <div
-            className={`mt-10 text-center text-transparent font-bold ml-10 lg:text-left text-5xl`}
+            className={`mt-5 p-3 text-center text-transparent font-bold  lg:ml-10 lg:text-left text-5xl`}
             style={{color: "transparent",   backgroundImage: bookData
             ? `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`
             : "", backgroundClip: "text", WebkitBackgroundClip: "text",}}
@@ -63,7 +31,7 @@ export default function Answer({
             {showName} says...
           </div>
           <div
-            className={`m-10 p-5 rounded-xl bg-[white]`}
+            className={`lg:m-10 p-5 rounded-xl bg-[white]`}
           ><div></div>
             {gotResult ? (
               <div>{answer}</div>
@@ -81,9 +49,9 @@ export default function Answer({
           </div>
         </div>
         <div
-          className={`bg-white border-black border-8 rounded-2xl min-h-[400px]  lg:m-10 w-full lg:w-auto border-solid`}
+          className={`bg-white rounded-2xl lg:min-h-[400px] min-h-[500px] overflow-auto  mt-5 lg:m-10 w-full lg:w-auto border-solid`}
         >
-          <div className={`text-3xl font-semibold p-10 pl-5`}>
+          <div className={`text-3xl p-3 pt-5 font-semibold lg:p-10 pl-5`}>
             From {showName}:
           </div>
 
