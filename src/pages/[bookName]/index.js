@@ -30,10 +30,17 @@ export default function Home({ bookData }) {
   const answerRef = useRef(null);
   const [gradientFrom, setGradientFrom] = useState("purple-400");
   const [gradientTo, setGradientTo] = useState("blue-400");
+  const [shouldGenerate, setShouldGenerate] = useState(false);
   useEffect(() => {
     setGradientFrom(bookData.gradientFrom);
     setGradientTo(bookData.gradientTo);
   }, [bookData]);
+  useEffect(() => {
+    if (shouldGenerate) {
+      generateAnswer(true);
+      setShouldGenerate(false);
+    }
+  }, [question]);
   function handleChange(event) {
     setQuestion(event.target.value);
   }
@@ -212,27 +219,27 @@ export default function Home({ bookData }) {
 
               <div className="flex flex-wrap mt-2">
                 <div
-                  className="suggested-question cursor-pointer px-4 py-1 mb-4 mr-4 bg-white border border-black rounded-lg"
+                  className="px-4 py-1 mb-4 mr-4 text-xl font-bold bg-white border border-black rounded-lg cursor-pointer suggested-question"
                   onClick={() => {
                     setQuestion(bookData.suggestedQueries[0]);
-                    generateAnswer(true);
+                    setShouldGenerate(true);
                   }}
+                  disabled={gotResult ? false : true}
                 >
-                  <p className="text-xl font-bold">
                     {bookData.suggestedQueries[0]}
-                  </p>
+
                 </div>
-                <div
-                  className="suggested-question cursor-pointer px-4 py-1 mb-4 bg-white border border-black rounded-lg"
+                <button
+                  className="px-4 py-1 mb-4 text-xl font-bold bg-white border border-black rounded-lg cursor-pointer suggested-question"
                   onClick={() => {
                     setQuestion(bookData.suggestedQueries[1]);
-                    generateAnswer(true);
+                    setShouldGenerate(true);
                   }}
+                  disabled={gotResult ? false : true}
                 >
-                  <p className="text-xl font-bold">
                     {bookData.suggestedQueries[1]}
-                  </p>
-                </div>
+
+                </button>
               </div>
               {/* 6 */}
             </div>
