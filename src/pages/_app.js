@@ -10,7 +10,10 @@ export default function App({ Component, pageProps }) {
             <meta charset="UTF-8"
               name="viewport" 
               content="width=device-width, initial-scale=1.0">
+                
           </meta>
+          <link rel="shortcut icon" type="image/jpg"href="../../public/favicon.ico"/>
+
           
         </Head>
         <Component {...pageProps} />
