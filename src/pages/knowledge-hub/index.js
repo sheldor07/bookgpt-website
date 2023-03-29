@@ -19,9 +19,9 @@ export default function Templates({booksData}) {
     return (
         <div>
             <Header />
-            <div className="py-2 text-center lg:mt-20 text-5xl font-extrabold text-transparent lg:text-7xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple">Get your guide here</div>
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            <div className="py-2 mt-10 text-5xl font-extrabold text-center text-transparent lg:mt-20 lg:text-7xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple">Get your guide here</div>
+            <div className="container px-4 mx-auto">
+                <div className="grid grid-cols-1 gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
                 {
                     books.map(({ img, price, title, description, gumroadUrl }) =>
                     <a href={gumroadUrl} target="_blank" rel="noopener noreferrer">

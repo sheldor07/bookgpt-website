@@ -22,13 +22,13 @@ function MobileNav({open, setOpen}) {
               <a className="my-4 text-xl font-medium text-white" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
                   home
               </a>
-              <a className="my-4 text-xl font-normal text-white" href="/contact" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
+              <a className="my-4 text-xl font-normal text-white" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
                   about
               </a>
               <a className="my-4 text-xl font-normal text-white" href="/contact" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
                   meet the team
               </a>
-              <a className="my-4 text-xl font-normal text-white" href="/contact" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
+              <a className="my-4 text-xl font-normal text-white" href="/knowledge-hub" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
               <button className='p-2 text-lg font-bold text-black bg-white rounded-full'>get your 📚 now</button>
               </a>
               

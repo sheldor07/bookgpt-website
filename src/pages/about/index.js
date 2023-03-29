@@ -19,7 +19,7 @@ export default function Home() {
         <div className="mt-10 text-3xl font-bold text-white lg:text-4xl">
           Stay Ahead of the Game<br></br>with BookGPT
         </div>
-        <div className="mx-52 flex mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 lg:mt-16 ">
+        <div className="flex mx-10 mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 lg:mx-52 lg:mt-16 ">
           Ever felt like you're missing out on the latest bestsellers or classic
           books? Life can get busy, and it's not always easy to find the time to
           sit down and read. That's where BookGPT comes in - we offer an

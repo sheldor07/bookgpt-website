@@ -18,12 +18,12 @@ export default function Answer({
   console.log("got result", gotResult);
   
   return (
-    <div className={`xl:px-52 px-10 mt-10`}>
+    <div className={`xl:px-52 md:px-24 px-3 mt-10`}>
       <div className={`grid grid-cols-1 rounded-2xl lg:grid-cols-2`}>
         <div className={`flex flex-col `}>
           
           <div
-            className={`mt-5 p-3 text-center text-transparent font-bold  lg:ml-10 lg:text-left text-5xl`}
+            className={`mb-10 mt-10 text-center text-transparent font-bold  lg:ml-10 text-5xl lg:text-5xl`}
             style={{color: "transparent",   backgroundImage: bookData
             ? `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`
             : "", backgroundClip: "text", WebkitBackgroundClip: "text",}}

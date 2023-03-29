@@ -2,7 +2,7 @@ import Link from 'next/link'
 export default function HeroText(){
     return(
     <div className="flex flex-col items-center">
-    <div className="mt-24 font-extrabold text-center text-transparent lg:text-9xl text-8xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
+    <div className="mt-24 font-extrabold text-center text-transparent lg:text-9xl sm:text-8xl text-8xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
     ChatGPT, but  for books.
     </div>
     <div className="px-10 mt-10 text-2xl font-normal leading-9 text-center text-gray-600 lg:mt-24 lg:px-72">
