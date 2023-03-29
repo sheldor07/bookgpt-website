@@ -1,4 +1,4 @@
-import Header from "../components/Header"
+import Header from "../books/components/Header"
 import Footer from "../components/Footer"
 import BookTemplate from './components/book-card'
 import { supabase } from "../../utils/supabase";

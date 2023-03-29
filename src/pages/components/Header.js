@@ -18,18 +18,18 @@ function MobileNav({open, setOpen}) {
           />
         </a>
           </div>
-          <div className="flex flex-col ml-4">
-              <a className="my-4 text-xl font-medium text-white" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
+          <div className="flex flex-col ml-4 mt-6">
+              <a className="text-center my-4 text-xl font-medium text-white" href="/" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
                   home
               </a>
-              <a className="my-4 text-xl font-normal text-white" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
+              <a className="text-center my-4 text-xl font-normal text-white" href="/about" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
                   about
               </a>
-              <a className="my-4 text-xl font-normal text-white" href="/contact" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
+              <a className="text-center my-4 text-xl font-normal text-white" href="/contact" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
                   meet the team
               </a>
-              <a className="my-4 text-xl font-normal text-white" href="/knowledge-hub" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
-              <button className='p-2 text-lg font-bold text-black bg-white rounded-full'>get your 📚 now</button>
+              <a className="text-center my-4 text-xl font-normal text-white" href="/knowledge-hub" onClick={() => setTimeout(() => {setOpen(!open)}, 100)}>
+              <button className='p-2 text-lg font-bold text-black bg-white rounded-xl'>get your 📚 now</button>
               </a>
               
           </div>  
@@ -61,7 +61,7 @@ export default function Navbar() {
               }}>
                   {/* hamburger button */}
                   <span className={`h-1 w-full bg-white rounded-lg transform transition duration-300 ease-in-out ${open ? "rotate-45 translate-y-3.5" : ""}`} />
-                  <span className={`h-1 w-full bg-white rounded-lg transition-all duration-300 ease-in-out ${open ? "w-0" : "w-full"}`} />
+                  <span className={`${open ? "w-0" : "h-1 w-full bg-white rounded-lg transition-all duration-300 ease-in-out  w-full"}`} />
                   <span className={`h-1 w-full bg-white rounded-lg transform transition duration-300 ease-in-out ${open ? "-rotate-45 -translate-y-3.5" : ""}`} />
               </div>
 

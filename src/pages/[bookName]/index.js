@@ -139,7 +139,7 @@ export default function Home({ bookData }) {
     <>
       <BookSeo
         bookName={showName}
-        summary={bookData.gumroad_description}
+        summary={bookData.description}
         ogImageUrl={`https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/preview.png`}
         twitterImageUrl={`https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/preview.png`}
       />
@@ -321,7 +321,7 @@ export async function getServerSideProps(context) {
   const { data: books, error } = await supabase
     .from("book-database")
     .select(
-      "gradient_from_col, gradient_to_col, placeholder_text, suggested_queries,gumroad_url"
+      "gradient_from_col, gradient_to_col, placeholder_text, suggested_queries,gumroad_url,gumroad_description"
     )
     .eq("book_name", bookName)
     .single();

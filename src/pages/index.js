@@ -32,8 +32,8 @@ export default function Home({books}) {
       <div className="">
      <HeroText/>
      <div className="mx-5 mt-24 lg:mx-24">
-      <div className="p-1 pb-20 lg:text-left text-center text-7xl font-bold bg-gradient-to-r text-transparent bg-clip-text from-[#7928CA] to-[#FF0080]">Explore our book catalog</div>
-      <div className="grid grid-cols-1 gap-5 mx-25 sm:mx-5 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+     <div className="p-1 pb-20 lg:text-left text-center text-6xl sm:text-7xl lg:text-9xl font-bold bg-gradient-to-r text-transparent bg-clip-text from-[#7928CA] to-[#FF0080]">Explore our book catalog</div>
+           <div className="grid grid-cols-1 gap-5 mx-25 sm:mx-5 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {books.map((book) => (
           <BookCard key={book.id} book_description = {book.catalog_description}showName={properCase(book.book_name)} name={book.book_name} />
         ))}
