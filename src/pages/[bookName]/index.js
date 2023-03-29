@@ -10,7 +10,7 @@ import Answer from "../books/components/Answer";
 //importing
 import { supabase } from "../../utils/supabase";
 import { properCase } from "../../utils/proper-case";
-import BookSeo from "../components/BookSeo";
+import BookSeo from "../books/components/BookSeo";
 
 export default function Home({ bookData }) {
   console.log(bookData);
