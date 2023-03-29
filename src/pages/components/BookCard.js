@@ -8,7 +8,7 @@ export default function BookCard(props) {
         query: { bookName: props.name },
       }}
     >
-      <div className="flex items-center rounded-lg hover:shadow-[#1b1b1b] bg-grey p-5 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 border-white border-4 shadow-white">
+      <div className="flex items-center rounded-lg hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 p-5 transition ease-in-out duration-300 border-white border-4 shadow-white hover:shadow-lg">
         <div>
           <img
             className="object-fit"
@@ -17,8 +17,6 @@ export default function BookCard(props) {
             height={500}
           />
         </div>
-
-
       </div>
     </Link>
   );

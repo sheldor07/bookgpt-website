@@ -42,12 +42,15 @@ export default function Home({ bookData }) {
       generateAnswer();
     }
   };
-  async function generateAnswer(searchQuery) {
+  async function generateAnswer(suggested) {
     let btnSubmit = document.getElementById("btnSubmit");
-    if (searchQuery != "none") {
-      setQuestion(searchQuery);
+    let suggestedButton = document.getElementsByClassName("suggested-question");
+
+    if (suggested) {
+      for (let i = 0; i < suggestedButton.length; i++) {
+        suggestedButton[i].disabled = true;
+      }
     }
-    console.log("clicked ", searchQuery);
     if (question === "") {
       return;
     }
@@ -96,7 +99,11 @@ export default function Home({ bookData }) {
     let answerResult = "";
 
     setGotResult(true);
-
+    if (suggested) {
+      for (let i = 0; i < suggestedButton.length; i++) {
+        suggestedButton[i].disabled = false;
+      }
+    }
     while (!done) {
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
@@ -171,7 +178,7 @@ export default function Home({ bookData }) {
                   />
                   <button
                     id="btnSubmit"
-                    onClick={() => generateAnswer("none")}
+                    onClick={() => generateAnswer(false)}
                     style={{
                       backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`,
                     }}
@@ -202,18 +209,30 @@ export default function Home({ bookData }) {
               </p>
 
               <div className="flex flex-wrap mt-2">
-                <div className="px-4 py-1 mb-4 mr-4 bg-white border border-black rounded-lg">
-                  <p
-                    className="text-xl font-bold "
-                    onClick={() => generateAnswer(bookData.suggestedQueries[0])}
-                  >
+                <div
+                  className="suggested-question cursor-pointer px-4 py-1 mb-4 mr-4 bg-white border border-black rounded-lg"
+                  onClick={() =>
+                    {
+                      setQuestion(bookData.suggestedQueries[0])
+                      generateAnswer(true)
+                    }                
+                  }
+                >
+                  <p className="text-xl font-bold">
                     {bookData.suggestedQueries[0]}
                   </p>
                 </div>
-                <div className="px-4 py-1 mb-4 bg-white border border-black rounded-lg">
+                <div
+                  className="suggested-question cursor-pointer px-4 py-1 mb-4 bg-white border border-black rounded-lg"
+                  onClick={() =>
+                    {
+                      setQuestion(bookData.suggestedQueries[1])
+                      generateAnswer(true)
+                    }
+                  }
+                >
                   <p
                     className="text-xl font-bold"
-                    onClick={() => generateAnswer(bookData.suggestedQueries[1])}
                   >
                     {bookData.suggestedQueries[1]}
                   </p>
