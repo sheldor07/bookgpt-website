@@ -35,7 +35,7 @@ export default function Header({gumroadUrl}) {
       <div className="mr-6">
         <a
           href="/knowledge-hub"
-          className="hidden px-4 py-2 text-xl text-white transition duration-500 ease-in-out transform bg-black rounded-md md:flex collapse md:visible bg-gradient-to-r from-gradient-blue to-gradient-purple hover:scale-150"
+          className="hidden px-4 py-2 text-xl text-white transition duration-500 ease-in-out transform bg-black rounded-md md:flex collapse md:visible bg-gradient-to-r from-gradient-blue to-gradient-purple hover:scale-110"
         >
           Explore More Books
         </a>
