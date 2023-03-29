@@ -9,26 +9,28 @@ export default function Contact() {
       <div className="mt-8 text-center text-7xl font-bold bg-gradient-to-r text-transparent bg-clip-text from-[#7928CA] to-[#FF0080] mb-10">
         Meet the Team
       </div>
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        <div className="flex flex-col items-center">
-          <img
-            src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/team"
-            className="h-96 object-cover rounded-xl"
-          />
-          <div className="text-3xl font-bold mt-4">Yajat Gulati</div>
+      <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+        <div className="flex flex-col items-center m-5">
+        <img
+  src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/team"
+  className="object-scale-down w-full rounded-xl"
+/>
         </div>
         <div className="flex flex-col items-center text-white">
-          <p className="p-20 text-lg font-base">
+          <p className="p-5 text-lg text-center lg:text-left lg:p-20 font-base">
             Yajat and I (Manas) initiated GPT Book Club with a foundational
-            concept: the implementation of an Atomic Habits GPT. After a trial
+            concept: the implementation of an Atomic Habits GPT. <br></br>
+            After a trial
             run and collecting user feedback, we enhanced our service and
             returned to our core value proposition - empowering users to digest
             books at an unprecedented speed. With our search functionality,
             users can find direct answers to questions they would have wanted to
             ask the book if it were a living entity - for instance, asking the
-            Atomic Habit GPT, "How can I stop procrastinating?". Additionally,
+            Atomic Habit GPT, "How can I stop procrastinating?".<br></br> 
+            Additionally,
             we have created Notion templates that serve as abridged versions of
-            the books, containing key ideas from each one. GPT Book Club was
+            the books, containing key ideas from each one. 
+            <br></br> GPT Book Club was
             founded on the belief that the knowledge embedded within these books
             is invaluable; however, due to limited time, reading them can be
             quite challenging. We are actively seeking collaboration for this
@@ -38,10 +40,10 @@ export default function Contact() {
           </p>
         </div>
       </div>
-      <div className="text-2xl font-bold mb-2 text-white text-center">
+      <div className="mb-2 text-2xl font-bold text-center text-white">
         Contact Us:
       </div>
-      <div className="flex items-center justify-center space-x-4 mb-2">
+      <div className="flex items-center justify-center mb-2 space-x-4">
         <a
           href="https://twitter.com/GulatiYajat"
           target="_blank"

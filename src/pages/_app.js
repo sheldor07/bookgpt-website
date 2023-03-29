@@ -1,6 +1,7 @@
 
 import '@/styles/globals.css'
 import 'tailwindcss/tailwind.css';
+import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head'
 export default function App({ Component, pageProps }) {
   return(
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }) {
           
         </Head>
         <Component {...pageProps} />
+        <Analytics />
     </>
 
   )
