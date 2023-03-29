@@ -6,9 +6,28 @@ import HeroText from "./components/HeroText"
 import {supabase} from "../utils/supabase"
 import BookCard from "./components/BookCard"
 import {properCase} from "../utils/proper-case"
+import Head from "next/head"
+
 export default function Home({books}) {
   return (
     <div className="overflow-auto " >
+      <Head>
+        <title>GPT Book Club</title>
+        <meta name="description" content="Discover the power of AI-driven book insights at GPT Book Club. Ask questions and get personalized answers from books, along with chapter summaries, top quotes & more for free!" />
+        <meta property="og:title" content="GPT Book Club: Interactive AI-Powered Book Summaries" />
+        <meta property="og:description" content="Discover the power of AI-driven book insights at GPT Book Club. Ask questions and get personalized answers from books, along with chapter summaries, top quotes & more for free!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://gptbook.club/" />
+        <meta property="og:image" content="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/SEO-OG-IMG" />
+
+        <meta name="twitter:title" content="GPT Book Club: Interactive AI-Powered Book Summaries" />
+        <meta name="twitter:description" content="Discover the power of AI-driven book insights at GPT Book Club. Ask questions and get personalized answers from books, along with chapter summaries, top quotes & more for free!" />
+        <meta name="twitter:image" content="https://your-website-url.com/twitter-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta name="keywords" content="AI, Book, Book Summaries, Book Quotes, Notion Book Template" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <Header/>
       <div className="">
      <HeroText/>
