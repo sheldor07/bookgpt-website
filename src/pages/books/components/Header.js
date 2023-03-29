@@ -6,12 +6,12 @@ export default function Header({gumroadUrl}) {
           <img
             src="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/logo.png"
             alt="Logo"
-            className="w-20 h-20 rounded"
+            className="w-16 h-16 rounded md:h-20 md:w-20"
           />
         </a>
         <a
           href="/"
-          className="px-2 text-xl font-bold text-transparent transition-all bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple"
+          className="px-0 text-xl font-bold text-transparent transition-all lg:px-2 md:text-xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple"
         >
           Join GPT Book Club
         </a>
@@ -35,7 +35,7 @@ export default function Header({gumroadUrl}) {
       <div className="mr-6">
         <a
           href="/knowledge-hub"
-          className="px-4 py-2 mr-4 text-xl text-white transition duration-500 ease-in-out transform bg-black rounded-md bg-gradient-to-r from-gradient-blue to-gradient-purple bg-black hover:scale-150"
+          className="hidden px-4 py-2 text-xl text-white transition duration-500 ease-in-out transform bg-black rounded-md md:flex collapse md:visible bg-gradient-to-r from-gradient-blue to-gradient-purple hover:scale-150"
         >
           Explore More Books
         </a>

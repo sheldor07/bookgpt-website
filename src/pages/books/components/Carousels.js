@@ -21,7 +21,7 @@ const Carousels = ({ paragraphs }) => {
   };
 
   return (
-    <div className="relative m-10 min-h-xl">
+    <div className="relative m-10 mt-5 min-h-xl">
       <div className="w-full h-full">
         {paragraphs &&
           paragraphs.map((paragraph, index) => (

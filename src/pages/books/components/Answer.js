@@ -55,7 +55,7 @@ export default function Answer({
         <div className={`flex flex-col `}>
           
           <div
-            className={`mt-10 pl-3 text-center text-transparent font-bold ml-10 lg:text-left text-5xl`}
+            className={`mt-10 text-center text-transparent font-bold ml-10 lg:text-left text-5xl`}
             style={{color: "transparent",   backgroundImage: bookData
             ? `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`
             : "", backgroundClip: "text", WebkitBackgroundClip: "text",}}
@@ -81,7 +81,7 @@ export default function Answer({
           </div>
         </div>
         <div
-          className={`bg-white border-black border-8 rounded-xl min-h-[400px] m-10 w-full lg:w-auto border-solid`}
+          className={`bg-white border-black border-8 rounded-2xl min-h-[400px]  lg:m-10 w-full lg:w-auto border-solid`}
         >
           <div className={`text-3xl font-semibold p-10 pl-5`}>
             From {showName}:

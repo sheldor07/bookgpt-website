@@ -16,7 +16,7 @@ export default function RightColumn({bookName, gradientFrom,gradientTo, gumroadU
   }, [currentSlide, slides]);
 
   return (
-    <div className="w-full mt-24 lg:w-1/2">
+    <div className="w-full mt-10 lg:mt-24 lg:w-1/2">
       <div
         className="relative flex items-center justify-center flex-grow lg:mt-8"
         style={{ minHeight: "420px" }}>
@@ -31,7 +31,7 @@ export default function RightColumn({bookName, gradientFrom,gradientTo, gumroadU
               <img
                 src={slide}
                 alt={`Image ${index + 1}`}
-                className="object-fit rounded-lg w-12/12 "
+                className="rounded-lg object-fit w-12/12 "
                 style={{ width: '700px', height:'auto' }}
               />
             </a>
@@ -39,7 +39,7 @@ export default function RightColumn({bookName, gradientFrom,gradientTo, gumroadU
         ))}
       </div>
       <div className="mt-16 text-center">
-        <button className="px-4 py-2 text-xl text-black font-bold  rounded-lg lg:mt-4" style={{ backgroundImage: `linear-gradient(90deg, ${gradientFrom}, ${gradientTo})`}}>
+        <button className="px-4 py-2 text-xl font-bold text-black rounded-lg lg:mt-4" style={{ backgroundImage: `linear-gradient(90deg, ${gradientFrom}, ${gradientTo})`}}>
           Get the Ultimate Notion Template
         </button>
         <p className="mt-4 text-lg">
