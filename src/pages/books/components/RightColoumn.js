@@ -38,7 +38,8 @@ export default function RightColumn({bookName, gradientFrom,gradientTo, gumroadU
         ))}
       </div>
       <div className="mt-16 text-center">
-        <button className="px-4 py-2 text-xl font-bold text-black rounded-lg lg:mt-4" style={{ backgroundImage: `linear-gradient(90deg, ${gradientFrom}, ${gradientTo})`}}>
+        <button className="px-4 py-2 text-xl font-bold text-black rounded-lg lg:mt-4" style={{ backgroundImage: `linear-gradient(90deg, ${gradientFrom}, ${gradientTo})`} }           onClick={() => window.open(gumroadUrl, "_blank")}>
+          {/* On click to redirect to google.com */}
           Get the Ultimate Notion Template
         </button>
         <p className="mt-4 text-lg text-white">
