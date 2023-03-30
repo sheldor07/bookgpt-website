@@ -22,7 +22,7 @@ export default function Home({books}) {
 
         <meta name="twitter:title" content="GPT Book Club: Interactive AI-Powered Book Summaries" />
         <meta name="twitter:description" content="Discover the power of AI-driven book insights at GPT Book Club. Ask questions and get personalized answers from books, along with chapter summaries, top quotes & more for free!" />
-        <meta name="twitter:image" content="https://your-website-url.com/twitter-image.png" />
+        <meta name="twitter:image" content="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/SEO-OG-IMG" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <meta name="keywords" content="AI, Book, Book Summaries, Book Quotes, Notion Book Template" />
