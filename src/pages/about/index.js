@@ -14,19 +14,19 @@ export default function Home() {
      
       <div className="flex flex-col items-center text-center ">
         <div className="p-2 mt-24 font-extrabold text-transparent text-7xl lg:text-7xl bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
-          Why BookGPT?
+          Why GPT Book Club?
         </div>
         <div className="mt-10 text-3xl font-bold text-white lg:text-4xl">
-          Stay Ahead of the Game<br></br>with BookGPT
+          Stay Ahead of the Game<br></br>with GPT Book Club
         </div>
         <div className="flex mx-10 mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 lg:mx-52 lg:mt-16 ">
           Ever felt like you're missing out on the latest bestsellers or classic
           books? Life can get busy, and it's not always easy to find the time to
-          sit down and read. That's where BookGPT comes in - we offer an
+          sit down and read. That's where GPT Book Club comes in - we offer an
           AI-powered search tool that gives you the key insights and takeaways
           from popular books, so you can stay in the loop without actually
           having to read them. No more FOMO, just the knowledge you need. Try
-          BookGPT today and see for yourself!
+          GPT Book Club today and see for yourself!
         </div>
       </div> 
       <div className="flex flex-col items-center text-center ">
@@ -50,7 +50,7 @@ export default function Home() {
               Cutting Edge Search
             </div>
             <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 ">
-            With BookGPT's AI-powered search tool, you'll get instant
+            With GPT Book Club's AI-powered search tool, you'll get instant
                   answers from bestsellers with just a few clicks. It's like
                   having a personal researcher at your fingertips!
             </div>
@@ -67,7 +67,7 @@ export default function Home() {
         Engaging reading experience
             </div>
             <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 ">
-            BookGPT offers an interactive reading experience that's
+            GPT Book Club offers an interactive reading experience that's
                   optimized for modern, fast-paced lifestyles. Our minified,
                   easy-to-read version of the book with relevant passages is
                   perfect for people who want to learn on the go.
@@ -85,7 +85,7 @@ export default function Home() {
         Effortless learning{" "}
             </div>
             <div className="mt-10 text-2xl not-italic font-normal leading-9 text-center text-gray-600 ">
-            BookGPT's time-saving solution lets you stay in the know and
+            GPT Book Club's time-saving solution lets you stay in the know and
                   up-to-date without sacrificing hours of your precious time.
                   Impress your friends and colleagues with your newfound
                   knowledge, all while keeping up with your busy schedule.
