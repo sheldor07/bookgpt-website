@@ -81,15 +81,7 @@ export default function Home({ bookData }) {
       .then((data) => {
         return data;
       });
-    }
-    catch(err){
-      console.log(err);
-      setGotResult(true);
-      btnSubmit.disabled = false;
-      setResult("Sorry, we are facing some issues from OpenAI. Please try again later.");
-      return;
-    }
-    const passageData = passageResponse;
+      const passageData = passageResponse;
     setPassages([
       passageData.top_3_passages[0]["Content"],
       passageData.top_3_passages[1]["Content"],
@@ -130,6 +122,15 @@ export default function Home({ bookData }) {
     }
 
     btnSubmit.disabled = false;
+    }
+    catch(err){
+      console.log(err);
+      setGotResult(true);
+      btnSubmit.disabled = false;
+      setResult("Sorry, we are facing some issues from OpenAI. Please try again later.");
+      return;
+    }
+    
   }
   // function SearchBox(){
   //  return( )
