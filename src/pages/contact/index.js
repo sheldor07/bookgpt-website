@@ -18,7 +18,7 @@ export default function Contact() {
         </div>
         <div className="flex flex-col items-center text-white">
           <p className="p-5 text-lg text-center lg:text-left lg:p-20 font-base">
-            Yajat and I (Manas) initiated GPT Book Club with a foundational
+            We initiated GPT Book Club with a foundational
             concept: the implementation of an Atomic Habits GPT. <br></br>
             After a trial
             run and collecting user feedback, we enhanced our service and

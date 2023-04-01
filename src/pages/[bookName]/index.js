@@ -69,7 +69,8 @@ export default function Home({ bookData }) {
     let check = "false";
     console.log("query", question);
     console.log("bg gradients color", gradientFrom, gradientTo);
-    const passageResponse = await fetch("/api/passages", {
+    try
+    {const passageResponse = await fetch("/api/passages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,6 +81,14 @@ export default function Home({ bookData }) {
       .then((data) => {
         return data;
       });
+    }
+    catch(err){
+      console.log(err);
+      setGotResult(true);
+      btnSubmit.disabled = false;
+      setResult("Sorry, we are facing some issues from OpenAI. Please try again later.");
+      return;
+    }
     const passageData = passageResponse;
     setPassages([
       passageData.top_3_passages[0]["Content"],

@@ -47,7 +47,7 @@ const handler = async (req, res) => {
            return new Response(passage_response);
           } catch (error) {
             console.error('The Error is ',error);
-            return new Response("Error", { status: 500 });
+            return new Response({"error":error}, { status: 500 });
           }
     }
  
