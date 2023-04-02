@@ -3,7 +3,7 @@ import { supabase} from "../../utils/supabase";
 
 const similarity = require( 'compute-cosine-similarity' );
 
-const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+const apiKey = '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';
 export const config = {
   runtime: "edge",
 };

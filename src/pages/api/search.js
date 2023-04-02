@@ -2,7 +2,7 @@
 import { supabase,supabaseUrl} from "../../utils/supabase";
 import { OpenAIStream } from "../../utils/getstream";
 
-const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+const apiKey = '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';
 export const config = {
   api: {
     bodyParser: {
