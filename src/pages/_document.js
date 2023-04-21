@@ -9,6 +9,7 @@ export default function Document() {
       <body class="dark"id="body">
         <Main />
         <NextScript />
+        
       </body>
     </Html>
   )
