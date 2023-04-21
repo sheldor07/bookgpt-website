@@ -11,6 +11,7 @@ export default function TemplateCard(props) {
             width={500}
             height={500}
           />
+          
         </div>
 
       </div>
