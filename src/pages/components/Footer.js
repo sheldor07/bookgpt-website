@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-black">
+    <footer className="absolute sticky bottom-0 w-full bg-black">
       <div className="container w-full mx-auto">
         <div className="px-4 py-6 text-white md:flex md:items-center md:justify-between">
           <span className="text-sm sm:text-center">
@@ -14,8 +14,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               href="https://yajatgulati.com"
-              className="underline"
-            >
+              className="underline">
               Yajat Gulati
             </a>
             <span className="mx-2">|</span>
@@ -24,8 +23,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.manasbam.com"
-              className="underline"
-            >
+              className="underline">
               Manas Bam
             </a>
           </div>

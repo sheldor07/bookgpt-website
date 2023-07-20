@@ -1,22 +1,47 @@
-import Link from 'next/link'
-export default function HeroText(){
-    return(
-    <div className="flex flex-col items-center">
-        <div className="mt-24 text-6xl sm:text-7xl lg:text-9xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple lg:w-auto w-11/12">
-            ChatGPT, but for books.
+import { Carousel } from "react-responsive-carousel";
+import BookCard from "./BookCard";
+import { properCase } from "./../../utils/proper-case";
+import Link from "next/link";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+export default function HeroText({ books }) {
+  return (
+    <div className="grid grid-cols-1 md:mx-24 lg:grid-cols-2">
+      <div className="p-12 lg:p-20 ">
+        {/* ... existing code ... */}
+        <div className="text-3xl font-extrabold text-transparent animate-in bg-clip-text bg-gradient-to-r from-gradient-blue to-gradient-purple ">
+          Welcome to <br></br> <p className="text-5xl">GPT Book Club</p>
         </div>
-        <div className="px-4 mt-10 text-xl font-normal leading-9 text-center text-gray-600 lg:mt-24 sm:px-10 lg:px-32 w-11/12">
-            GPT Book Club is the ultimate solution for book lovers who want to keep up with the latest literary trends but don't have the time to read every book. Our AI-powered search reads the book for you, so you can get the answers you need in seconds. Plus, our interactive, minified version of the book makes it easy to read the most important parts in a fraction of the time.
+        <div className="mt-12 font-normal text-gray-600 text-md md:text-lg ">
+          GPT Book Club is the ultimate solution for book lovers who want to
+          keep up with the latest literary trends but don't have the time to
+          read every book.
         </div>
-        {/* <div className="grid grid-cols-1 gap-3 mt-10 lg:gap-6 sm:grid-cols-2 lg:mt-24">
-            <button className="w-64 p-2 text-xl text-black rounded-lg font-base bg-neutral-50">
-                Get in touch
-            </button>
-            <button className="w-64 p-2 text-xl text-white rounded-lg font-base bg-gradient-to-r from-green-400 to-blue-500">
-                <Link href="/catalog">Explore our Catalog</Link>
-
-            </button>
-        </div> */}
+        <div classname="flex flex-row lg:flex-col ">
+          <button className="p-2 mt-10 text-white transition ease-in-out delay-150 bg-teal-500 rounded-lg text-md hover:-translate-y-1 hover:scale-110 md:text-lg font-base">
+            <Link href="/knowledge-hub">Get a guide</Link>
+          </button>
+          <button className="p-2 my-2 transition ease-in-out delay-150 bg-white rounded-lg sm:mx-4 text-md text-black-500 hover:-translate-y-1 hover:scale-110 md:text-lg font-base">
+            <Link href="/skin-in-the-game">Talk to our books for FREE </Link>
+          </button>
+        </div>
+      </div>
+      <div className="flex flex-col items-center justify-center collapse md:visible">
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          infiniteLoop={true}
+          autoPlay={true}>
+          {books.map((book) => (
+            <div key={book.id}>
+              <BookCard
+                book_description={book.catalog_description}
+                showName={properCase(book.book_name)}
+                name={book.book_name}
+              />
+            </div>
+          ))}
+        </Carousel>
+      </div>
     </div>
-    )
+  );
 }
