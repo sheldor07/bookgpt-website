@@ -15,7 +15,7 @@ export default function Answer({
 }) {
 
   
-  console.log("got result", gotResult);
+  // console.log("got result", gotResult);
   
   return (
     <div className={`xl:px-52 md:px-24 px-3 mt-10`}>

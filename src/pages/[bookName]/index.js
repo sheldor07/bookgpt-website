@@ -13,9 +13,9 @@ import { properCase } from "../../utils/proper-case";
 import BookSeo from "../books/components/BookSeo";
 
 export default function Home({ bookData }) {
-  console.log(bookData);
+  // console.log(bookData);
   const router = useRouter();
-  console.log("router", router.query);
+  // console.log("router", router.query);
   const bookName = router.query.bookName;
   const [showName, setShowName] = useState("");
   if (bookName != undefined && showName == "") {
@@ -66,9 +66,9 @@ export default function Home({ bookData }) {
     setGotResult(false);
     setShowResult(true);
     handleScroll(answerRef.current);
-    let check = "false";
-    console.log("query", question);
-    console.log("bg gradients color", gradientFrom, gradientTo);
+    // let check = "false";
+    // console.log("query", question);
+    // console.log("bg gradients color", gradientFrom, gradientTo);
     try
     {const passageResponse = await fetch("/api/passages", {
       method: "POST",
@@ -124,7 +124,7 @@ export default function Home({ bookData }) {
     btnSubmit.disabled = false;
     }
     catch(err){
-      console.log(err);
+      // console.log(err);
       setGotResult(true);
       btnSubmit.disabled = false;
       setResult("Sorry, we are facing some issues from OpenAI. Please try again later.");
@@ -340,7 +340,7 @@ export async function getServerSideProps(context) {
       notFound: true,
     };
   }
-  console.log(books);
+  // console.log(books);
   return {
     props: {
       bookData: {

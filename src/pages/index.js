@@ -61,10 +61,10 @@ export async function getServerSideProps() {
   let books = {};
   await  supabase.from('book-database').select('*').then(({ data, error }) => {
     if(error){
-      console.log("error", error)
+      // console.log("error", error)
     }
       books = data
-      console.log("books got",data)
+      // console.log("books got",data)
     })
   
 
