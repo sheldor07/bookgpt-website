@@ -25,23 +25,25 @@ export default function HeroText({ books }) {
           </button>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center collapse md:visible">
-        <Carousel
-          showThumbs={false}
-          showStatus={false}
-          infiniteLoop={true}
-          autoPlay={true}>
-          {books.map((book) => (
-            <div key={book.id}>
-              <BookCard
-                book_description={book.catalog_description}
-                showName={properCase(book.book_name)}
-                name={book.book_name}
-              />
-            </div>
-          ))}
-        </Carousel>
-      </div>
+      {books ? (
+        <div className="flex flex-col items-center justify-center collapse md:visible">
+          <Carousel
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop={true}
+            autoPlay={true}>
+            {books.map((book) => (
+              <div key={book.id}>
+                <BookCard
+                  book_description={book.catalog_description}
+                  showName={properCase(book.book_name)}
+                  name={book.book_name}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+      ) : null}
     </div>
   );
 }
