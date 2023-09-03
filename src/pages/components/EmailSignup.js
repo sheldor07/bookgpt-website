@@ -30,7 +30,6 @@ export default function Signup() {
       });
 
       if (response.ok) {
-        formik.resetForm();
         setSubmitted(true);
       }
     },
@@ -48,12 +47,13 @@ export default function Signup() {
             type="email"
             name="email"
             value={formik.values.email}
-            className={`px-2 my-2 sm:w-[300px]  w-full sm:mx-0 mx-auto transition ease-in-out delay-150 bg-white rounded-l-lg text-md text-black-500  md:text-md py-2 font-base  ${
+            className={`px-2 my-2 sm:w-[300px]  w-full sm:mx-0 mx-autotransition ease-in-out delay-150 bg-white rounded-l-lg text-md text-black-500  md:text-md py-2 font-base  ${
               formik.errors.email && "border-red-500"
             }`}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             placeholder="Enter your email"
+            disabled={submitted} // Disable the input after successful submission
           />
           {submitted ? (
             // Display checkmark icon when submitted
@@ -65,6 +65,7 @@ export default function Signup() {
             <button
               className=" text-white  bg-gradient-to-r from-gradient-blue to-gradient-purple rounded-r-lg px-2 my-2 text-md text-black-500 hover:-translate-y-1 hover:scale-110 md:text-md py-2 font-base"
               type="submit"
+              disabled={submitted} // Disable the button after successful submission
             >
               Steal
             </button>
