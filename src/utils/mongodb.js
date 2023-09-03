@@ -5,7 +5,7 @@ const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 };
-
+let client;
 let clientPromise;
 
 try {
