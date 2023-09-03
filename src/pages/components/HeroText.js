@@ -2,6 +2,8 @@ import { Carousel } from "react-responsive-carousel";
 import BookCard from "./BookCard";
 import { properCase } from "./../../utils/proper-case";
 import Link from "next/link";
+import Signup from "./EmailSignup";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 export default function HeroText({ books }) {
   return (
@@ -24,6 +26,7 @@ export default function HeroText({ books }) {
             <Link href="/skin-in-the-game">Talk to our books for FREE </Link>
           </button>
         </div>
+        <Signup />
       </div>
       {books ? (
         <div className="flex flex-col items-center justify-center collapse md:visible">
@@ -31,7 +34,8 @@ export default function HeroText({ books }) {
             showThumbs={false}
             showStatus={false}
             infiniteLoop={true}
-            autoPlay={true}>
+            autoPlay={true}
+          >
             {books.map((book) => (
               <div key={book.id}>
                 <BookCard
