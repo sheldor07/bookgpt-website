@@ -1,23 +1,25 @@
-import { Html, Main, NextScript } from "next/document";
-import Script from "next/script";
+import { Html, Main, Head, NextScript, Script } from "next/document";
 export default function Document() {
   return (
     <Html lang="en">
+      {" "}
+      <Head>
+        <title>GPT Book Club</title>
+        <meta
+          charset="UTF-8"
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+        <link
+          rel="shortcut icon"
+          type="image/jpg"
+          href="../../public/favicon.ico"
+        />
+      </Head>
+      
       <body class="dark" id="body">
         <Main />
         <NextScript />
-        <div className="container">
-          <Script src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" />
-          <Script id="google-analytics">
-            {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', 'GA_MEASUREMENT_ID');
-        `}
-          </Script>
-        </div>
       </body>
     </Html>
   );
