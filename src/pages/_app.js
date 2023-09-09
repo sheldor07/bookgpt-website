@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   
-    gtag('config', ${[process.env.GOOGLE_MEASUREMENT_ID]});`}
+    gtag('config', ${process.env.GOOGLE_MEASUREMENT_ID});`}
       </Script>
       <Component {...pageProps} />
       <Analytics />
