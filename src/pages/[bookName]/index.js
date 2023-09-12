@@ -75,7 +75,7 @@ export default function Home({ bookData }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query: question, bookName }),
+        body: JSON.stringify({ query: question, showName }),
       });
       const saveQueryData = await saveQueryResponse.json();
       // console.log(saveQueryData);
