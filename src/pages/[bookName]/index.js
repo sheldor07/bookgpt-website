@@ -13,10 +13,14 @@ import { properCase } from "../../utils/proper-case";
 import BookSeo from "../books/components/BookSeo";
 
 export default function Home({ bookData }) {
-  // console.log(bookData);
   const router = useRouter();
-  // console.log("router", router.query);
+
+  if (!router.isReady) {
+    return <div>Loading...</div>;
+  }
+
   const bookName = router.query.bookName;
+
   const [showName, setShowName] = useState("");
   if (bookName != undefined && showName == "") {
     setShowName(properCase(bookName));
@@ -75,7 +79,7 @@ export default function Home({ bookData }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query: question, showName }),
+        body: JSON.stringify({ query: question, bookName: showName }),
       });
       const saveQueryData = await saveQueryResponse.json();
       // console.log(saveQueryData);

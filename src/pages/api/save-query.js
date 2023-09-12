@@ -8,8 +8,8 @@ export default async (req, res) => {
       const client = await clientPromise;
       const db = client.db();
 
-      // Insert the email into the collection (e.g., 'signups')
-      await db.collection(`${bookName}`).insertOne({ query });
+      // Insert the query into the collection 'queries'
+      await db.collection("queries").insertOne({ bookName, query });
 
       return res.status(200).json({ success: true });
     } catch (error) {
