@@ -6,6 +6,19 @@ import Script from "next/script";
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>GPT Book Club</title>
+        <meta
+          charset="UTF-8"
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+        <link
+          rel="shortcut icon"
+          type="image/jpg"
+          href="../../public/favicon.ico"
+        />
+      </Head>
       <Script
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=G-GM4MZES6G7`}

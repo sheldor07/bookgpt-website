@@ -205,7 +205,6 @@ export default function Home({ bookData }) {
                   >
                     <svg
                       width="40"
-                      ƒ
                       height="30"
                       viewBox="0 0 40 40"
                       fill="none"
