@@ -18,7 +18,7 @@ export default function HeroText({ books }) {
           keep up with the latest literary trends but don't have the time to
           read every book.
         </div>
-        <div classname="flex flex-row lg:flex-col ">
+        <div>
           <button className="p-2 mt-10 text-white transition ease-in-out delay-150 bg-teal-500 rounded-lg text-md hover:-translate-y-1 hover:scale-110 md:text-lg font-base">
             <Link href="/knowledge-hub">Get a guide</Link>
           </button>

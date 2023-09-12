@@ -69,68 +69,75 @@ export default function Home({ bookData }) {
     // let check = "false";
     // console.log("query", question);
     // console.log("bg gradients color", gradientFrom, gradientTo);
-    try
-    {const passageResponse = await fetch("/api/passages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ bookName, question }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        return data;
+    try {
+      const saveQueryResponse = await fetch("/api/save-query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query: question, bookName }),
       });
+      const saveQueryData = await saveQueryResponse.json();
+      // console.log(saveQueryData);
+      const passageResponse = await fetch("/api/passages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ bookName, question }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          return data;
+        });
       const passageData = passageResponse;
-    setPassages([
-      passageData.top_3_passages[0]["Content"],
-      passageData.top_3_passages[1]["Content"],
-      passageData.top_3_passages[2]["Content"],
-    ]);
-    const answerResponse = await fetch("/api/search", {
-      method: "POST",
+      setPassages([
+        passageData.top_3_passages[0]["Content"],
+        passageData.top_3_passages[1]["Content"],
+        passageData.top_3_passages[2]["Content"],
+      ]);
+      const answerResponse = await fetch("/api/search", {
+        method: "POST",
 
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        bookName: bookName,
-        question: question,
-        passages: passageData.all_passages,
-      }),
-    });
-    const data = answerResponse.body;
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          bookName: bookName,
+          question: question,
+          passages: passageData.all_passages,
+        }),
+      });
+      const data = answerResponse.body;
 
-    const reader = data.getReader();
-    const decoder = new TextDecoder();
-    let done = false;
+      const reader = data.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
 
-    let answerResult = "";
+      let answerResult = "";
 
-    setGotResult(true);
-    if (suggested) {
-      for (let i = 0; i < suggestedButton.length; i++) {
-        suggestedButton[i].disabled = false;
+      setGotResult(true);
+      if (suggested) {
+        for (let i = 0; i < suggestedButton.length; i++) {
+          suggestedButton[i].disabled = false;
+        }
       }
-    }
-    while (!done) {
-      const { value, done: doneReading } = await reader.read();
-      done = doneReading;
-      const chunkValue = decoder.decode(value);
-      answerResult += chunkValue;
-      setResult(answerResult);
-    }
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+        const chunkValue = decoder.decode(value);
+        answerResult += chunkValue;
+        setResult(answerResult);
+      }
 
-    btnSubmit.disabled = false;
-    }
-    catch(err){
+      btnSubmit.disabled = false;
+    } catch (err) {
       // console.log(err);
       setGotResult(true);
       btnSubmit.disabled = false;
-      setResult("Sorry, we are facing some issues from OpenAI. Please try again later.");
+      setResult(JSON.stringify(err));
       return;
     }
-    
   }
   // function SearchBox(){
   //  return( )
@@ -235,8 +242,7 @@ export default function Home({ bookData }) {
                   }}
                   disabled={gotResult ? false : true}
                 >
-                    {bookData.suggestedQueries[0]}
-
+                  {bookData.suggestedQueries[0]}
                 </div>
                 <button
                   className="px-4 py-1 mb-4 text-xl font-bold bg-white border border-black rounded-lg cursor-pointer suggested-question"
@@ -246,8 +252,7 @@ export default function Home({ bookData }) {
                   }}
                   disabled={gotResult ? false : true}
                 >
-                    {bookData.suggestedQueries[1]}
-
+                  {bookData.suggestedQueries[1]}
                 </button>
               </div>
               {/* 6 */}
