@@ -2,10 +2,18 @@ import clientPromise from "../../utils/mongodb";
 
 export default async (req, res) => {
   if (req.method === "POST") {
+    // console.log("this is from client", req.headers.origin);
+    const allowedOrigin = ["https://www.gptbook.club", "https://gptbook.club/","http://localhost:3000"];
+
+    // Check if the request's origin is allowed
+    if (!allowedOrigin.includes(req.headers.origin)) {
+      return res.status(403).json({ error: "Forbidden" });
+    }
+
     const bearerAuth = req.headers.authorization; // Extract the token
     const authToken = bearerAuth.split(" ")[1];
     console.log("this is from client", authToken);
-    
+
     console.log("this is on the sverer", process.env.NEXT_PUBLIC_MONGODB_TOKEN);
     if (authToken !== process.env.NEXT_PUBLIC_MONGODB_TOKEN)
       return res.status(401).json({ error: "Unauthorized" });
