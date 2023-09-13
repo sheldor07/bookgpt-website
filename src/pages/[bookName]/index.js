@@ -78,6 +78,7 @@ export default function Home({ bookData }) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_MONGODB_TOKEN}`,
         },
         body: JSON.stringify({ query: question, bookName: showName }),
       });

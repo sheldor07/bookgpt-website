@@ -2,7 +2,18 @@ import clientPromise from "../../utils/mongodb";
 
 export default async (req, res) => {
   if (req.method === "POST") {
+    const bearerAuth = req.headers.authorization; // Extract the token
+    const authToken = bearerAuth.split(" ")[1];
+    console.log("this is from client", authToken);
+    
+    console.log("this is on the sverer", process.env.NEXT_PUBLIC_MONGODB_TOKEN);
+    if (authToken !== process.env.NEXT_PUBLIC_MONGODB_TOKEN)
+      return res.status(401).json({ error: "Unauthorized" });
     const { query, bookName } = req.body;
+    // Validate the query and bookName
+    if (!query || !bookName) {
+      return res.status(400).json({ error: "Missing query or bookName" });
+    }
 
     try {
       const client = await clientPromise;
