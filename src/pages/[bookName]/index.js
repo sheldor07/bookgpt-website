@@ -74,15 +74,7 @@ export default function Home({ bookData }) {
     // console.log("query", question);
     // console.log("bg gradients color", gradientFrom, gradientTo);
     try {
-      const saveQueryResponse = await fetch("/api/save-query", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_MONGODB_TOKEN}`,
-        },
-        body: JSON.stringify({ query: question, bookName: showName }),
-      });
-      const saveQueryData = await saveQueryResponse.json();
+     
       // console.log(saveQueryData);
       const passageResponse = await fetch("/api/passages", {
         method: "POST",
@@ -96,11 +88,13 @@ export default function Home({ bookData }) {
           return data;
         });
       const passageData = passageResponse;
+      //console.log(passageData);
       setPassages([
-        passageData.top_3_passages[0]["Content"],
-        passageData.top_3_passages[1]["Content"],
-        passageData.top_3_passages[2]["Content"],
+        passageData.top_3_passages[0]["content"],
+        passageData.top_3_passages[1]["content"],
+        passageData.top_3_passages[2]["content"],
       ]);
+
       const answerResponse = await fetch("/api/search", {
         method: "POST",
 
@@ -141,12 +135,18 @@ export default function Home({ bookData }) {
       setGotResult(true);
       btnSubmit.disabled = false;
       setResult(JSON.stringify(err));
+      const saveQueryResponse = await fetch("/api/save-query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_MONGODB_TOKEN}`,
+        },
+        body: JSON.stringify({ query: question, bookName: showName }),
+      });
+      const saveQueryData = await saveQueryResponse.json();
       return;
     }
   }
-  // function SearchBox(){
-  //  return( )
-  // }
   const handleScroll = (ref) => {
     setTimeout(() => {
       window.scrollTo({
