@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 export default function RightColumn({bookName, gradientFrom,gradientTo, gumroadUrl }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slides, setSlides] = useState([
-    `https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-1.png`,
-    `https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-2.png`,
-    `https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/${bookName}/notion-mockup-3.png`,
+    `${bookName}/notion-mockup-1.png`,
+    `${bookName}/notion-mockup-2.png`,
+    `${bookName}/notion-mockup-3.png`,
   ]);
 
   useEffect(() => {

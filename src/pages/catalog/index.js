@@ -1,10 +1,10 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BookCard from "../components/BookCard";
-import { supabase } from "../../utils/supabase";
-import { useState } from "react";
+
 import { properCase } from "../../utils/proper-case";
-export default function Catalog({ books }) {
+import books from "@/utils/bookDb";
+export default function Catalog() {
   return (
     <div className="text-center ">
       <Header />
@@ -31,23 +31,4 @@ export default function Catalog({ books }) {
       }
     </div>
   );
-}
-export async function getServerSideProps() {
-  let books = {};
-  await supabase
-    .from("book-database")
-    .select("*")
-    .then(({ data, error }) => {
-      if (error) {
-        // console.log("error", error)
-      }
-      books = data;
-      // console.log("books got",data)
-    });
-
-  return {
-    props: {
-      books,
-    },
-  };
 }

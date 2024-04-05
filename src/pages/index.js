@@ -42,7 +42,7 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content="https://qhaaptobpyvibymtemus.supabase.co/storage/v1/object/public/gptbookclub/SEO-OG-IMG"
+          content="twitter-seo.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
 
