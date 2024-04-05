@@ -74,7 +74,6 @@ export default function Home({ bookData }) {
     // console.log("query", question);
     // console.log("bg gradients color", gradientFrom, gradientTo);
     try {
-     
       // console.log(saveQueryData);
       const passageResponse = await fetch("/api/passages", {
         method: "POST",
@@ -87,8 +86,7 @@ export default function Home({ bookData }) {
         .then((data) => {
           return data;
         });
-      const passageData = passageResponse;
-      //console.log(passageData);
+      const passageData = JSON.parse(passageResponse);
       setPassages([
         passageData.top_3_passages[0]["content"],
         passageData.top_3_passages[1]["content"],

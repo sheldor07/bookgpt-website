@@ -1,14 +1,19 @@
 import { Pinecone } from "@pinecone-database/pinecone";
-
-const similarity = require("compute-cosine-similarity");
+import bodyParser from "body-parser";
+import { NextResponse } from "next/server";
 
 const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
 const pineconeApiKey = process.env.NEXT_PUBLIC_PINECONE_API_KEY;
+export const config = {
+  api: {
+    bodyParser: true,
+  },
+};
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
     try {
-      let body = await req.json();
+      let body = req.body;
       console.log("Body", body);
       let query = body.question;
       let bookName = body.bookName;
@@ -33,20 +38,20 @@ const handler = async (req, res) => {
       const json = await embed.json();
       const embedding = json.data[0].embedding;
 
-      const index = await pinecone.index(indexName);
-      const results = await index.query({
+      const index = pinecone.index(indexName);
+      const results = await index.namespace(namespace).query({
         vector: embedding,
         topK: 5,
-        namespace: namespace,
         includeMetadata: true,
       });
-      // console.log("Results", results);
+      console.log("Results", results);
       const passages = results.matches.map((match) => ({
         content: match.metadata["Content"],
         score: match.score,
       }));
       let rel_passages = "";
       let top_3_passages = passages.slice(0, 3);
+      console.log("Top 3 Passages", top_3_passages);
       for (let i = 0; i < passages.length; i++) {
         rel_passages = rel_passages + passages[i].content;
       }
@@ -57,10 +62,10 @@ const handler = async (req, res) => {
       };
       passage_response = JSON.stringify(passage_response);
       // console.log("Passage Response", passage_response);
-      return new Response(passage_response);
+      res.status(200).json(passage_response);
     } catch (error) {
       console.error("The Error is ", error);
-      return new Response({ error: error }, { status: 500 });
+      res.status(500).json({ error: error.message });
     }
   }
 };
