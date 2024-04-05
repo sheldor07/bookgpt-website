@@ -7,8 +7,8 @@ import { supabase } from "../utils/supabase";
 import BookCard from "./components/BookCard";
 import { properCase } from "../utils/proper-case";
 import Head from "next/head";
-
-export default function Home({ books }) {
+import books from "../utils/bookDb.js";
+export default function Home() {
   return (
     <div className="overflow-auto ">
       <Head>
@@ -82,23 +82,4 @@ export default function Home({ books }) {
       }
     </div>
   );
-}
-export async function getServerSideProps() {
-  let books = {};
-  await supabase
-    .from("book-database")
-    .select("*")
-    .then(({ data, error }) => {
-      if (error) {
-        // console.log("error", error)
-      }
-      books = data;
-      // console.log("books got",data)
-    });
-
-  return {
-    props: {
-      books,
-    },
-  };
 }

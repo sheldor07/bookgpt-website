@@ -8,11 +8,10 @@ import RightColoumn from "../books/components/RightColoumn";
 import Answer from "../books/components/Answer";
 
 //importing
-import { supabase } from "../../utils/supabase";
 import { properCase } from "../../utils/proper-case";
 import BookSeo from "../books/components/BookSeo";
-
-export default function Home({ bookData }) {
+import books from "../../utils/bookDb";
+export default function Home() {
   const router = useRouter();
 
   if (!router.isReady) {
@@ -20,6 +19,9 @@ export default function Home({ bookData }) {
   }
 
   const bookName = router.query.bookName;
+  const bookData = books.find((book) => book.book_name === bookName);
+
+  console.log("Book Data", bookData);
 
   const [showName, setShowName] = useState("");
   if (bookName != undefined && showName == "") {
@@ -36,8 +38,8 @@ export default function Home({ bookData }) {
   const [gradientTo, setGradientTo] = useState("blue-400");
   const [shouldGenerate, setShouldGenerate] = useState(false);
   useEffect(() => {
-    setGradientFrom(bookData.gradientFrom);
-    setGradientTo(bookData.gradientTo);
+    setGradientFrom(bookData.gradient_from_col);
+    setGradientTo(bookData.gradient_to_col);
   }, [bookData]);
   useEffect(() => {
     if (shouldGenerate) {
@@ -72,7 +74,7 @@ export default function Home({ bookData }) {
     handleScroll(answerRef.current);
     // let check = "false";
     // console.log("query", question);
-    // console.log("bg gradients color", gradientFrom, gradientTo);
+    // console.log("bg gradients color", gradient_from_col, gradientTo);
     try {
       // console.log(saveQueryData);
       const passageResponse = await fetch("/api/passages", {
@@ -176,7 +178,7 @@ export default function Home({ bookData }) {
                 <span
                   style={{
                     color: "transparent",
-                    backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`,
+                    backgroundImage: `linear-gradient(90deg, ${bookData.gradient_from_col}, ${bookData.gradient_to_col})`,
                     backgroundClip: "text",
                     WebkitBackgroundClip: "text",
                   }}
@@ -202,14 +204,14 @@ export default function Home({ bookData }) {
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
                     type="text"
-                    placeholder={bookData.placeholderText}
+                    placeholder={bookData.placeholder_text}
                     className="w-full px-4 py-2 pr-12 bg-white border border-black rounded-lg"
                   />
                   <button
                     id="btnSubmit"
                     onClick={() => generateAnswer(false)}
                     style={{
-                      backgroundImage: `linear-gradient(90deg, ${bookData.gradientFrom}, ${bookData.gradientTo})`,
+                      backgroundImage: `linear-gradient(90deg, ${bookData.gradient_from_col}, ${bookData.gradientTo})`,
                     }}
                     className="absolute top-0 right-0 flex items-center justify-center h-full rounded-r-lg"
                   >
@@ -240,22 +242,22 @@ export default function Home({ bookData }) {
                 <div
                   className="px-4 py-1 mb-4 mr-4 text-xl font-bold bg-white border border-black rounded-lg cursor-pointer suggested-question"
                   onClick={() => {
-                    setQuestion(bookData.suggestedQueries[0]);
+                    setQuestion(bookData.suggested_queries[0]);
                     setShouldGenerate(true);
                   }}
                   disabled={gotResult ? false : true}
                 >
-                  {bookData.suggestedQueries[0]}
+                  {bookData.suggested_queries[0]}
                 </div>
                 <button
                   className="px-4 py-1 mb-4 text-xl font-bold bg-white border border-black rounded-lg cursor-pointer suggested-question"
                   onClick={() => {
-                    setQuestion(bookData.suggestedQueries[1]);
+                    setQuestion(bookData.suggested_queries[1]);
                     setShouldGenerate(true);
                   }}
                   disabled={gotResult ? false : true}
                 >
-                  {bookData.suggestedQueries[1]}
+                  {bookData.suggested_queries[1]}
                 </button>
               </div>
               {/* 6 */}
@@ -263,9 +265,9 @@ export default function Home({ bookData }) {
             {/* Right Column */}
             <RightColoumn
               bookName={bookName}
-              gradientFrom={bookData.gradientFrom}
-              gradientTo={bookData.gradientTo}
-              gumroadUrl={bookData.gumroadUrl}
+              gradientFrom={bookData.gradient_from_col}
+              gradientTo={bookData.gradient_to_col}
+              gumroadUrl={bookData.gumroad_url}
             />
           </div>
         </div>
@@ -280,8 +282,8 @@ export default function Home({ bookData }) {
               para1={passages[0]}
               para2={passages[1]}
               para3={passages[2]}
-              gradientFrom={bookData.gradientFrom}
-              gradientTo={bookData.gradientTo}
+              gradientFrom={bookData.gradient_from_col}
+              gradientTo={bookData.gradient_to_col}
             />
           ) : (
             <div></div>
@@ -312,7 +314,7 @@ export default function Home({ bookData }) {
           .bg-gradient-to-r {
             background-image: linear-gradient(
               90deg,
-              #${bookData.gradientFrom},
+              #${bookData.gradient_from_col},
               #${bookData.gradientTo}
             );
             
@@ -330,34 +332,4 @@ function colorNameToValue(colorName) {
     // Add more color name/value pairs if needed
   };
   return colorValues[colorName] || colorName;
-}
-
-export async function getServerSideProps(context) {
-  const { bookName } = context.query;
-
-  const { data: books, error } = await supabase
-    .from("book-database")
-    .select(
-      "gradient_from_col, gradient_to_col, placeholder_text, suggested_queries,gumroad_url,gumroad_description"
-    )
-    .eq("book_name", bookName)
-    .single();
-  if (error) {
-    return {
-      notFound: true,
-    };
-  }
-  // console.log(books);
-  return {
-    props: {
-      bookData: {
-        gradientFrom: books.gradient_from_col,
-        gradientTo: books.gradient_to_col,
-        placeholderText: books.placeholder_text,
-        suggestedQueries: books.suggested_queries,
-        gumroadUrl: books.gumroad_url,
-        description: books.gumroad_description,
-      },
-    },
-  };
 }
