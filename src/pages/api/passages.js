@@ -5,10 +5,6 @@ const similarity = require("compute-cosine-similarity");
 const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
 const pineconeApiKey = process.env.NEXT_PUBLIC_PINECONE_API_KEY;
 
-export const config = {
-  runtime: "edge",
-};
-
 const handler = async (req, res) => {
   if (req.method === "POST") {
     try {
