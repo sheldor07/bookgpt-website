@@ -40,10 +40,7 @@ export default function Home() {
           name="twitter:description"
           content="Discover the power of AI-driven book insights at GPT Book Club. Ask questions and get personalized answers from books, along with chapter summaries, top quotes & more for free!"
         />
-        <meta
-          name="twitter:image"
-          content="twitter-seo.png"
-        />
+        <meta name="twitter:image" content="twitter-seo.png" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <meta
@@ -51,6 +48,7 @@ export default function Home() {
           content="AI, Book, Book Summaries, Book Quotes, Notion Book Template"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-adsense-account" content="ca-pub-6642912205908895"/>
       </Head>
       <Header />
       <div className="">

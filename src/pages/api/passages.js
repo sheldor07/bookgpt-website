@@ -36,6 +36,7 @@ const handler = async (req, res) => {
       });
 
       const json = await embed.json();
+      console.log("Embedding", json);
       const embedding = json.data[0].embedding;
 
       const index = pinecone.index(indexName);
@@ -49,6 +50,7 @@ const handler = async (req, res) => {
         content: match.metadata["Content"],
         score: match.score,
       }));
+
       let rel_passages = "";
       let top_3_passages = passages.slice(0, 3);
       console.log("Top 3 Passages", top_3_passages);
