@@ -23,6 +23,11 @@ export default function App({ Component, pageProps }) {
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=G-GM4MZES6G7`}
       ></Script>
+      <Script
+        strategy="beforeInteractive "
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6642912205908895"
+        crossorigin="anonymous"
+      ></Script>
       <Script strategy="lazyOnload">
         {`window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
